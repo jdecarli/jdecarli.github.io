@@ -1,0 +1,18 @@
+/* Theme */
+
+main, footer {
+	background: #485564;
+	color: #FAFAFA;
+}
+
+a {
+	color: #D3D3D3
+}
+
+.icons-social a {
+	color: #FAFAFA;
+}
+
+.icons-social a svg path{
+	fill: #FAFAFA;
+}
