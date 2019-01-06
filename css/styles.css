@@ -46,7 +46,6 @@ main {
 }
 
 main > .intro {
-	/* font-family: 'Reem Kufi', sans-serif; */	
 	font-family: 'Raleway', sans-serif;
 	font-size: 3.75em;
 	font-weight: 600;
@@ -56,6 +55,14 @@ main > .tagline {
 	font-size: 1.5rem;
 	margin: 1.5rem 0;
 	font-weight: 100;
+}
+
+#div_aws_certs {
+	text-align: center;
+	list-style-position: inside;
+	align-content: center;
+	font-size: 1.5rem;
+	display: none;
 }
 
 footer {
