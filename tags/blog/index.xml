@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on javierdecarli.com</title>
+    <link>http://javierdecarli.com/tags/blog/</link>
+    <description>Recent content in Blog on javierdecarli.com</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://javierdecarli.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Here we go again...</title>
+      <link>http://javierdecarli.com/posts/first-post/</link>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/posts/first-post/</guid>
+      <description>(Re)Starting the blog idea once again</description>
+      <content:encoded><![CDATA[<p>I&rsquo;ll add other sections as we go, but wanted to get at least one post out the door — once and for all.</p>
+<p>This experiment only works if I stay consistent, and consistency requires keeping publishing simple. That&rsquo;s why I chose a very simple <a href="https://gohugo.io/">Hugo</a> template based on the <a href="https://themes.gohugo.io/themes/hugo-papermod/">PaperMod</a> theme. I might write about the process in the future.</p>
+<p>Huge thanks to my friend <a href="https://sebasmonia.com">Sebastian</a> for planting the seed to try blogging again. Blogging to me always felt like a more &ldquo;pure&rdquo; way of interacting with the web, it kinda takes me back to when I was a kid getting into computers discovering things like irc, compilers like Turbo Pascal and the beginnings of the internet.</p>
+<p>No data collection or cookies — I don&rsquo;t sell anything. I&rsquo;ll keep the site lean while preserving small, subtle design touches (colors, fonts).</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

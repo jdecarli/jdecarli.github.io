@@ -1,6 +1,10 @@
 Direct link: http://javierdecarli.com
 
 # My personal page / jdecarli.github.io
+## v2.0 (07/2026)
+- Migrated site to [Hugo](https://gohugo.io/) static site generator.
+- Content organized into Hugo's content/ and public/ style structure (generated output presented here).
+
 ## v1.1 (01/2019)
 - Added JQuery to accomodate more than one certification with animation
 
