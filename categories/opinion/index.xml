@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Life on javierdecarli.com</title>
-    <link>http://javierdecarli.com/tags/life/</link>
-    <description>Recent content in Life on javierdecarli.com</description>
+    <title>Opinion on javierdecarli.com</title>
+    <link>http://javierdecarli.com/categories/opinion/</link>
+    <description>Recent content in Opinion on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://javierdecarli.com/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://javierdecarli.com/categories/opinion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Transfering Knowledge</title>
       <link>http://javierdecarli.com/posts/transfering-knowledge/</link>
@@ -33,18 +33,6 @@ Neo&#39;s training scene in the Nebuchadnezzar - The Matrix (1999)
 <p>And on top of all that, we also underestimate the human part of the whole thing.</p>
 <p>I generally feel there&rsquo;s a lot of &ldquo;human interaction&rdquo; type of activities that people tend to underestimate, probably because we miss that teaching isn’t just showing something or doing a demo. It’s paying attention to how people actually learn, respecting their pace, and not assuming the way we learn is the universal way. If we did that more often, half our “communication problems” would probably be alleviated.</p>
 <p>Anyway, that’s my rant. Teaching is hard, learning is weird, attention is broken, and humans are complicated. But if we remember that, maybe we’ll stop expecting this process to be easy.</p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Make Your Work Setup Enjoyable</title>
-      <link>http://javierdecarli.com/posts/make-your-work-setup-enjoyable/</link>
-      <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://javierdecarli.com/posts/make-your-work-setup-enjoyable/</guid>
-      <description>Little details...</description>
-      <content:encoded><![CDATA[<p>I&rsquo;m very fortunate of working mostly remote (at least for now) and over the years I kept fine-tuning and improving my work setup. Little changes like a better keayboard, a comfy chair, bigger monitor(s), etc.</p>
-<p>It changes a lot having a nice work setup. It changes your day and even how tired you get. We spend a lot of our day on that place (specially if you are a nerd like me) and the more enjoyable our place is, the better.</p>
-<p>Spending a bit more on a nice device can change your day.</p>
-<p>There you go&hellip; if you were waiting for an excuse to buy a gadget for your &ldquo;work-cave&rdquo; this is it. You&rsquo;re welcome!</p>
 ]]></content:encoded>
     </item>
   </channel>
