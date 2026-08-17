@@ -1,54 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>http://javierdecarli.com/tags/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/categories/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/communication/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/learning/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/life/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/categories/opinion/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/posts/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/productivity/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/posts/transfering-knowledge/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/categories/general/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/posts/make-your-work-setup-enjoyable/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/nerd/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/blog/</loc>
-    <lastmod>2026-07-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/posts/first-post/</loc>
-    <lastmod>2026-07-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/about/</loc>
-  </url><url>
-    <loc>http://javierdecarli.com/archives/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+		<sitemap>
+			<loc>http://javierdecarli.com/en/sitemap.xml</loc>
+			
+				<lastmod>2026-08-09T00:00:00+00:00</lastmod>
+			
+		</sitemap>
+	
+		<sitemap>
+			<loc>http://javierdecarli.com/es/sitemap.xml</loc>
+			
+				<lastmod>2026-08-17T00:00:00+00:00</lastmod>
+			
+		</sitemap>
+	
+</sitemapindex>

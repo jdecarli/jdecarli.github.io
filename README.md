@@ -1,6 +1,9 @@
 Direct link: http://javierdecarli.com
 
 # My personal page / jdecarli.github.io
+## v2.1 (08/2026)
+- Added multi-language support with first Spanish post
+
 ## v2.0 (07/2026)
 - Migrated site to [Hugo](https://gohugo.io/) static site generator.
 - Content organized into Hugo's content/ and public/ style structure (generated output presented here).
