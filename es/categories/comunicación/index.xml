@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on javierdecarli.com</title>
-    <link>http://javierdecarli.com/es/posts/</link>
-    <description>Recent content in Posts on javierdecarli.com</description>
+    <title>Comunicación on javierdecarli.com</title>
+    <link>http://javierdecarli.com/es/categories/comunicaci%C3%B3n/</link>
+    <description>Recent content in Comunicación on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Thu, 27 Aug 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://javierdecarli.com/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://javierdecarli.com/es/categories/comunicaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>El precio de las omisiones</title>
       <link>http://javierdecarli.com/es/posts/el-precio-de-las-omisiones/</link>
@@ -22,17 +22,6 @@
 <p>Esto pasa constantemente y siento que en la gran mayoria de casos mucha gente tiende a elegir la segunda opción. Ya se, es la mas facil, no hace falta decir nada&hellip; cero esfuerzo. El problema es que las consecuencias pueden ser feas, incluso en algunos casos irreparables. Para ser sincero me tomo años darme cuenta que ese momento de decir &ldquo;momento, frenemos todo, acá hay algo mal&rdquo; y lidiar con tal vez algun que otro enojo al final no es tan dificil como uno se imagina. Ahora la otra opción, cuando sale mal, sale bien mal.</p>
 <p>No solo eso&hellip; la primera opción tiene muchas ventajas. No solo demuestra interes real de hacer las cosas bien, sino que tambien cuanto mas rapido se hace, mas tiempo tenemos queda para planear una solución.</p>
 <p>Asi que nada&hellip; pensamiento aleatorio de jueves.</p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Ideas... en español</title>
-      <link>http://javierdecarli.com/es/posts/ideas-en-espanol/</link>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://javierdecarli.com/es/posts/ideas-en-espanol/</guid>
-      <description>Arracando una nueva etapa</description>
-      <content:encoded><![CDATA[<p>Y ya tenemos version en español&hellip;</p>
-<p>Mi idea es que esto sea una especie de blog paralelo. No voy a estar traduciendo posts de ingles a español y viceversa porque es 2026 y practicamente todos los navegadores pueden hacer eso por defecto asi que la idea es que los posts en español tomen, tal vez, otro rumbo.</p>
-<p>No estoy muy seguro como el hecho de escribir en mi idioma nativo vs el &ldquo;adoptivo&rdquo; 🤣 va a afectar a lo que escribo. Claramente necesito mucho menos esfuerzo con respecto a plasmar las ideas a texto en un post español de lo que seria uno en ingles. Va a ser un experimento interesante.</p>
 ]]></content:encoded>
     </item>
   </channel>
