@@ -6,8 +6,29 @@
     <description>Recent content in /Tags on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>http://javierdecarli.com/tags/ai/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>http://javierdecarli.com/tags/blog/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Opinion</title>
+      <link>http://javierdecarli.com/tags/opinion/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/tags/opinion/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Communication</title>
       <link>http://javierdecarli.com/tags/communication/</link>
@@ -41,13 +62,6 @@
       <link>http://javierdecarli.com/tags/nerd/</link>
       <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
       <guid>http://javierdecarli.com/tags/nerd/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blog</title>
-      <link>http://javierdecarli.com/tags/blog/</link>
-      <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://javierdecarli.com/tags/blog/</guid>
       <description></description>
     </item>
   </channel>

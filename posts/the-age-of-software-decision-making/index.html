@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>The age of software decision making | javierdecarli.com</title>
+<meta name="keywords" content="blog, ai, opinion">
+<meta name="description" content="Why I feel AI product generation will probably slow down">
+<meta name="author" content="Javier De Carli">
+<link rel="canonical" href="http://javierdecarli.com/posts/the-age-of-software-decision-making/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07559fc32d552d197873e8f5fc160025d6a5387f9a0edf52acc50d1d4ceaafd6.css" integrity="sha256-B1Wfwy1VLRl4c&#43;j1/BYAJdalOH&#43;aDt9SrMUNHUzqr9Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://javierdecarli.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://javierdecarli.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://javierdecarli.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://javierdecarli.com/apple-touch-icon.png">
+<link rel="mask-icon" href="http://javierdecarli.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://javierdecarli.com/posts/the-age-of-software-decision-making/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://javierdecarli.com/posts/the-age-of-software-decision-making/">
+  <meta property="og:site_name" content="javierdecarli.com">
+  <meta property="og:title" content="The age of software decision making">
+  <meta property="og:description" content="Why I feel AI product generation will probably slow down">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-09-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-02T00:00:00+00:00">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Opinion">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The age of software decision making">
+  <meta name="twitter:description" content="Why I feel AI product generation will probably slow down">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://javierdecarli.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "The age of software decision making",
+      "item": "http://javierdecarli.com/posts/the-age-of-software-decision-making/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The age of software decision making",
+  "name": "The age of software decision making",
+  "description": "Why I feel AI product generation will probably slow down",
+  "keywords": [
+    "blog", "ai", "opinion"
+  ],
+  "articleBody": "Talking with my friend Sebastian we hit the topic of things that AI was helping us to achieve and also things that we dodged the bullet by steering the AI agent in the right direction, avoiding a bad “long-term” choice. These were situations where the AI agent went in one direction that was not the right one, or let’s say, that we know would have bad consequences…\nThose situations where you ask yourself “But does it work?” and the answer is yeah, for sure… but is not the right choice because it’s either a problem in the long term, or a dead end, or maybe it’s way too… “myopic”?\nIn some few cases could just be that the model might not be as strong as we think it is, but in most cases is definitely lack of context. Is the AIs fault for not knowing what is our final vision of the solution? well… that’s pretty unfair. We are the only ones knowing the end goal of what we want to achieve, the AI only executes whatever we ask to solve “right now”. Same thing happens in all our (human) interactions, and has been happening forever.\nLet’s use this example: asking AI to generate a dashboard or a website. Everyone is doing this, and the non‑technical conclusion is always the same: “So fast! We don’t need developers anymore!” but how many users will consume that dashboard? One? Ten? Ten thousand? A million? The use case changes the implementation drastically. And what happens when we have 300 metrics? Where does metric 301 go? Does it belong on the first page? Is it redundant? Does it break the layout? The bigger the solution gets, the more complex developing and maintaining it becomes.\nThese are not new problems… Written in 1986 “No Silver Bullet—Essence and Accident in Software Engineering” is a paper on software engineering written by Fred Brooks that addresses the general problem. In that paper he brings two key concepts: “accidental complexity” and “real complexity”. 1\nAccidental complexity is basically problems that engineers create and can fix. The technical details, the glue code, the integrations, the mechanics of walking the path toward the solution.\nEssential complexity is caused by the problem to be solved and nothing can remove it. If users want a program to do 30 different things, then those 30 things are essential and the program must do those 30 different things.\nClearly Mr Brooks had no idea what AI would look like, but given how general the problem is, it’s very relevant. AI addresses the accidental complexity and, given the right instructions and context, nails it but we’re still left with a big chunk of the problem to solve.\nThe gap between knowing and understanding In Star Trek: The Next Generation there’s an episode where Data (Lieutenant Commander Data which, if you never watch it, number one shame on you, number two he is an android) builds another android that he aids with cognitive and standard behavioral algorithms. During an interaction Data explains something that fits a problem perfectly but Picard (Commander Jean-Luc Picard) challenges him about whether the new android was learning, or whether she was simply executing algorithms to which Data responds:\n“It is the difference between knowledge and experience.” 2\nAnd I feel that’s exactly what happens with AI today.\nThe AI agent produces analysis, design, code, tests, even full PRs. But it never experienced the problem, or any similar problem. It doesn’t understand the long‑term vision, the constraints, the tradeoffs which are basically the intuition behind the design. And that means the quality of the solution is directly proportional to the quality of the instruction.\nConclusion I feel it’s all about the final vision and the design to arrive to the solution because of factors like technology limitations and, more important, the essential complexity of each problem. The narrative that anybody can build software solutions is just very naive because it assumes the AI agent will magically have enough context to make decisions and fill the gaps.\nCan this ever happen? hard to predict… it will definitely be alleviated by having much more processing power and not having to worry about who is the target of the solution, but the essential complexity will always be there.\nIt’s as unavoidable as the need to solve new problems.\nDoes not mean an “accident” as used in common speech, a chance incident, normally harmful. Examples of accidents are color, taste, movement, and stagnation / wikipedia source ↩︎\nThis is why the episode is called “The Offspring” - Episode 16th of the third season, and the 64th episode of the series overall / more detail ↩︎\n",
+  "wordCount" : "776",
+  "inLanguage": "en",
+  "datePublished": "2026-09-02T00:00:00Z",
+  "dateModified": "2026-09-02T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Javier De Carli"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://javierdecarli.com/posts/the-age-of-software-decision-making/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "javierdecarli.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://javierdecarli.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://javierdecarli.com/" accesskey="h" title="javierdecarli.com (Alt + H)">javierdecarli.com</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button><span class="nav-sep">|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://javierdecarli.com/es/" title="Español"
+                                aria-label="Español">Español</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://javierdecarli.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      The age of software decision making
+    </h1>
+    <div class="post-description">
+      Why I feel AI product generation will probably slow down
+    </div>
+    <div class="post-meta">
+
+<span title='2026-09-02 00:00:00 +0000 UTC'>September 2, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Javier De Carli</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Talking with my friend <a href="https://sebasmonia.com/">Sebastian</a> we hit the topic of things that AI was helping us to achieve and also things that we dodged the bullet by steering the AI agent in the right direction, avoiding a bad &ldquo;long-term&rdquo; choice. These were situations where the AI agent went in one direction that was not the right one, or let&rsquo;s say, that <em>we know</em> would have bad consequences&hellip;</p>
+<p>Those situations where you ask yourself &ldquo;But does it work?&rdquo; and the answer is yeah, for sure&hellip; but is not the right choice because it&rsquo;s either a problem in the long term, or a dead end, or maybe it&rsquo;s way too&hellip; &ldquo;myopic&rdquo;?</p>
+<p>In some few cases could just be that the model might not be as strong as we think it is, but in most cases is definitely lack of context. Is the AIs fault for not knowing what is our final vision of the solution? well&hellip; that&rsquo;s pretty unfair. We are the only ones knowing the end goal of what we want to achieve, the AI only executes whatever we ask to solve &ldquo;right now&rdquo;. Same thing happens in all our (human) interactions, and has been happening forever.</p>
+<p>Let&rsquo;s use this example: asking AI to generate a dashboard or a website. Everyone is doing this, and the non‑technical conclusion is always the same: “So fast! We don’t need developers anymore!” but how many users will consume that dashboard? One? Ten? Ten thousand? A million? The use case changes the implementation drastically. And what happens when we have 300 metrics? Where does metric 301 go? Does it belong on the first page? Is it redundant? Does it break the layout? The bigger the solution gets, the more complex developing and maintaining it becomes.</p>
+<h2 id="these-are-not-new-problems">These are not new problems&hellip;<a hidden class="anchor" aria-hidden="true" href="#these-are-not-new-problems">#</a></h2>
+<p>Written in 1986 <a href="https://en.wikipedia.org/wiki/No_Silver_Bullet">&ldquo;No Silver Bullet—Essence and Accident in Software Engineering&rdquo;</a> is a paper on software engineering written by Fred Brooks that addresses the general problem. In that paper he brings two key concepts: &ldquo;accidental complexity&rdquo; and &ldquo;real complexity&rdquo;. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Accidental complexity is basically <em>problems that engineers create and can fix</em>. The technical details, the glue code, the integrations, the mechanics of walking the path toward the solution.</p>
+<p>Essential complexity is <em>caused by the problem to be solved and nothing can remove it</em>. If users want a program to do 30 different things, then those 30 things are essential and the program must do those 30 different things.</p>
+<p>Clearly Mr Brooks had no idea what AI would look like, but given how general the problem is, it&rsquo;s very relevant. AI addresses the accidental complexity and, given the right instructions and context, nails it but we&rsquo;re still left with a big chunk of the problem to solve.</p>
+<h2 id="the-gap-between-knowing-and-understanding">The gap between knowing and understanding<a hidden class="anchor" aria-hidden="true" href="#the-gap-between-knowing-and-understanding">#</a></h2>
+<p>In Star Trek: The Next Generation there&rsquo;s an episode where Data (Lieutenant Commander Data which, if you never watch it, number one shame on you, number two he is an android) builds another android that he aids with cognitive and standard behavioral algorithms. During an interaction Data explains something that fits a problem perfectly but Picard (Commander Jean-Luc Picard) challenges him about whether the new android was learning, or whether she was simply executing algorithms to which Data responds:</p>
+<p>“It is the difference between knowledge and experience.” <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>And I feel that’s exactly what happens with AI today.</p>
+<p>The AI agent produces analysis, design, code, tests, even full PRs. But it never experienced the problem, or any similar problem. It doesn’t understand the long‑term vision, the constraints, the tradeoffs which are basically the intuition behind the design. And that means <em>the quality of the solution is directly proportional to the quality of the instruction</em>.</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>I feel it&rsquo;s all about the final vision and the design to arrive to the solution because of factors like technology limitations and, more important, the essential complexity of each problem. The narrative that anybody can build software solutions is just very naive because it assumes the AI agent will magically have enough context to make decisions and fill the gaps.</p>
+<p>Can this ever happen? hard to predict&hellip; it will definitely be alleviated by having much more processing power and not having to worry about who is the target of the solution, but the essential complexity will always be there.</p>
+<p>It&rsquo;s as unavoidable as the need to solve new problems.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Does not mean an &ldquo;accident&rdquo; as used in common speech, a chance incident, normally harmful. Examples of accidents are color, taste, movement, and stagnation / <a href="https://en.wikipedia.org/wiki/Accident_%28philosophy%29">wikipedia source</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>This is why the episode is called &ldquo;The Offspring&rdquo; - Episode 16th of the third season, and the 64th episode of the series overall / <a href="https://en.wikipedia.org/wiki/The_Offspring_%28Star_Trek:_The_Next_Generation%29">more detail</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://javierdecarli.com/tags/blog/">Blog</a></li>
+      <li><a href="http://javierdecarli.com/tags/ai/">Ai</a></li>
+      <li><a href="http://javierdecarli.com/tags/opinion/">Opinion</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://javierdecarli.com/">javierdecarli.com</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

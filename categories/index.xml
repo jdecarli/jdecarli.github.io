@@ -6,20 +6,20 @@
     <description>Recent content in Categories on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General</title>
+      <link>http://javierdecarli.com/categories/general/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/categories/general/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Opinion</title>
       <link>http://javierdecarli.com/categories/opinion/</link>
       <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
       <guid>http://javierdecarli.com/categories/opinion/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>General</title>
-      <link>http://javierdecarli.com/categories/general/</link>
-      <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://javierdecarli.com/categories/general/</guid>
       <description></description>
     </item>
   </channel>

@@ -6,10 +6,47 @@
     <description>Recent content on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Transfering Knowledge</title>
+      <title>The age of software decision making</title>
+      <link>http://javierdecarli.com/posts/the-age-of-software-decision-making/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/posts/the-age-of-software-decision-making/</guid>
+      <description>Why I feel AI product generation will probably slow down</description>
+      <content:encoded><![CDATA[<p>Talking with my friend <a href="https://sebasmonia.com/">Sebastian</a> we hit the topic of things that AI was helping us to achieve and also things that we dodged the bullet by steering the AI agent in the right direction, avoiding a bad &ldquo;long-term&rdquo; choice. These were situations where the AI agent went in one direction that was not the right one, or let&rsquo;s say, that <em>we know</em> would have bad consequences&hellip;</p>
+<p>Those situations where you ask yourself &ldquo;But does it work?&rdquo; and the answer is yeah, for sure&hellip; but is not the right choice because it&rsquo;s either a problem in the long term, or a dead end, or maybe it&rsquo;s way too&hellip; &ldquo;myopic&rdquo;?</p>
+<p>In some few cases could just be that the model might not be as strong as we think it is, but in most cases is definitely lack of context. Is the AIs fault for not knowing what is our final vision of the solution? well&hellip; that&rsquo;s pretty unfair. We are the only ones knowing the end goal of what we want to achieve, the AI only executes whatever we ask to solve &ldquo;right now&rdquo;. Same thing happens in all our (human) interactions, and has been happening forever.</p>
+<p>Let&rsquo;s use this example: asking AI to generate a dashboard or a website. Everyone is doing this, and the non‑technical conclusion is always the same: “So fast! We don’t need developers anymore!” but how many users will consume that dashboard? One? Ten? Ten thousand? A million? The use case changes the implementation drastically. And what happens when we have 300 metrics? Where does metric 301 go? Does it belong on the first page? Is it redundant? Does it break the layout? The bigger the solution gets, the more complex developing and maintaining it becomes.</p>
+<h2 id="these-are-not-new-problems">These are not new problems&hellip;</h2>
+<p>Written in 1986 <a href="https://en.wikipedia.org/wiki/No_Silver_Bullet">&ldquo;No Silver Bullet—Essence and Accident in Software Engineering&rdquo;</a> is a paper on software engineering written by Fred Brooks that addresses the general problem. In that paper he brings two key concepts: &ldquo;accidental complexity&rdquo; and &ldquo;real complexity&rdquo;. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Accidental complexity is basically <em>problems that engineers create and can fix</em>. The technical details, the glue code, the integrations, the mechanics of walking the path toward the solution.</p>
+<p>Essential complexity is <em>caused by the problem to be solved and nothing can remove it</em>. If users want a program to do 30 different things, then those 30 things are essential and the program must do those 30 different things.</p>
+<p>Clearly Mr Brooks had no idea what AI would look like, but given how general the problem is, it&rsquo;s very relevant. AI addresses the accidental complexity and, given the right instructions and context, nails it but we&rsquo;re still left with a big chunk of the problem to solve.</p>
+<h2 id="the-gap-between-knowing-and-understanding">The gap between knowing and understanding</h2>
+<p>In Star Trek: The Next Generation there&rsquo;s an episode where Data (Lieutenant Commander Data which, if you never watch it, number one shame on you, number two he is an android) builds another android that he aids with cognitive and standard behavioral algorithms. During an interaction Data explains something that fits a problem perfectly but Picard (Commander Jean-Luc Picard) challenges him about whether the new android was learning, or whether she was simply executing algorithms to which Data responds:</p>
+<p>“It is the difference between knowledge and experience.” <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>And I feel that’s exactly what happens with AI today.</p>
+<p>The AI agent produces analysis, design, code, tests, even full PRs. But it never experienced the problem, or any similar problem. It doesn’t understand the long‑term vision, the constraints, the tradeoffs which are basically the intuition behind the design. And that means <em>the quality of the solution is directly proportional to the quality of the instruction</em>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I feel it&rsquo;s all about the final vision and the design to arrive to the solution because of factors like technology limitations and, more important, the essential complexity of each problem. The narrative that anybody can build software solutions is just very naive because it assumes the AI agent will magically have enough context to make decisions and fill the gaps.</p>
+<p>Can this ever happen? hard to predict&hellip; it will definitely be alleviated by having much more processing power and not having to worry about who is the target of the solution, but the essential complexity will always be there.</p>
+<p>It&rsquo;s as unavoidable as the need to solve new problems.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Does not mean an &ldquo;accident&rdquo; as used in common speech, a chance incident, normally harmful. Examples of accidents are color, taste, movement, and stagnation / <a href="https://en.wikipedia.org/wiki/Accident_%28philosophy%29">wikipedia source</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>This is why the episode is called &ldquo;The Offspring&rdquo; - Episode 16th of the third season, and the 64th episode of the series overall / <a href="https://en.wikipedia.org/wiki/The_Offspring_%28Star_Trek:_The_Next_Generation%29">more detail</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Transfering knowledge</title>
       <link>http://javierdecarli.com/posts/transfering-knowledge/</link>
       <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
       <guid>http://javierdecarli.com/posts/transfering-knowledge/</guid>
@@ -36,7 +73,7 @@ Neo&#39;s training scene in the Nebuchadnezzar - The Matrix (1999)
 ]]></content:encoded>
     </item>
     <item>
-      <title>Make Your Work Setup Enjoyable</title>
+      <title>Make your work setup enjoyable</title>
       <link>http://javierdecarli.com/posts/make-your-work-setup-enjoyable/</link>
       <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
       <guid>http://javierdecarli.com/posts/make-your-work-setup-enjoyable/</guid>
