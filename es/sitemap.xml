@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://javierdecarli.com/es/tags/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -15,59 +15,8 @@
                 href="http://javierdecarli.com/es/tags/"
                 />
   </url><url>
-    <loc>http://javierdecarli.com/es/categories/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://javierdecarli.com/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://javierdecarli.com/es/categories/"
-                />
-  </url><url>
-    <loc>http://javierdecarli.com/es/categories/comunicaci%C3%B3n/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/es/posts/el-precio-de-las-omisiones/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/es/tags/es/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/es/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://javierdecarli.com/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://javierdecarli.com/es/"
-                />
-  </url><url>
-    <loc>http://javierdecarli.com/es/tags/opini%C3%B3n/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/es/posts/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://javierdecarli.com/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://javierdecarli.com/es/posts/"
-                />
-  </url><url>
     <loc>http://javierdecarli.com/es/tags/blog/</loc>
-    <lastmod>2026-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -79,8 +28,21 @@
                 href="http://javierdecarli.com/es/tags/blog/"
                 />
   </url><url>
+    <loc>http://javierdecarli.com/es/categories/</loc>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/categories/"
+                />
+  </url><url>
     <loc>http://javierdecarli.com/es/categories/general/</loc>
-    <lastmod>2026-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -91,6 +53,44 @@
                 hreflang="es"
                 href="http://javierdecarli.com/es/categories/general/"
                 />
+  </url><url>
+    <loc>http://javierdecarli.com/es/</loc>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/"
+                />
+  </url><url>
+    <loc>http://javierdecarli.com/es/posts/</loc>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/posts/"
+                />
+  </url><url>
+    <loc>http://javierdecarli.com/es/posts/volviendo-de-pausa/</loc>
+    <lastmod>2026-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/es/categories/comunicaci%C3%B3n/</loc>
+    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/es/posts/el-precio-de-las-omisiones/</loc>
+    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/es/tags/opini%C3%B3n/</loc>
+    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/es/posts/ideas-en-espanol/</loc>
     <lastmod>2026-08-17T00:00:00+00:00</lastmod>
