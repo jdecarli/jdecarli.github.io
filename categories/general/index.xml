@@ -6,8 +6,22 @@
     <description>Recent content in General on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back to RSS</title>
+      <link>http://javierdecarli.com/posts/going-back-to-rss/</link>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/posts/going-back-to-rss/</guid>
+      <description>When ads and trackers completely destroy the experience</description>
+      <content:encoded><![CDATA[<p>The web became a pretty hostile place to browse/navigate. It&rsquo;s almost mandatory to have an ad-blocker to stop intrusive ads, popups, trackers and other maliciuos content. And let&rsquo;s not even talk about mobile because the situation there is even worse.</p>
+<p>I think this is making a lot of people to go back to more simple ways to get information. Of course, I don&rsquo;t think RSS will become popular but who knows. Anyways, I just added RSS support in case you want.</p>
+<ul>
+<li>Main RSS feed: <a href="https://javierdecarli.com/index.xml">https://javierdecarli.com/index.xml</a></li>
+<li>Spanish RSS (in case you&rsquo;re interested): <a href="https://javierdecarli.com/es/index.xml">https://javierdecarli.com/es/index.xml</a></li>
+</ul>
+]]></content:encoded>
+    </item>
     <item>
       <title>The age of software decision making</title>
       <link>http://javierdecarli.com/posts/the-age-of-software-decision-making/</link>
