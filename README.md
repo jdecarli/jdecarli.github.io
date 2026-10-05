@@ -1,7 +1,7 @@
 Direct link: http://javierdecarli.com
 
 # My personal page / jdecarli.github.io
-## v2.1.1 (10/05/2026)
+## v2.1.1 (10/2026)
 - "Prev / Next" footer in posts
 
 ## v2.1 (08/2026)
