@@ -6,8 +6,122 @@
     <description>Recent content on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code setup 101</title>
+      <link>http://javierdecarli.com/posts/claude-code-setup-101/</link>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/posts/claude-code-setup-101/</guid>
+      <description>Minimun knowledge required for a good experience</description>
+      <content:encoded><![CDATA[<p>It&rsquo;s pretty important to have a tight control on how our Claude Code is configured. The more we understand how it&rsquo;s set, the more confident we can be that our agents will do what we want them to do, and avoid unwanted consequences.</p>
+<blockquote>
+<p>As we&rsquo;re in the infancy of this tech, and things change very quickly, have in mind I&rsquo;m writting this on <strong><em>October 2026</em></strong>, and things might change drastically in the future.</p>
+</blockquote>
+<h2 id="understanding-configuration-levels">Understanding configuration levels</h2>
+<p>Claude has 3 levels worth mentioning</p>
+<ol>
+<li><strong>Enterprise-level</strong>: This is the highest level and the one we have the least control. This is meant for your organization to push rules/restrictions to your harness. If you use Claude outside an organization (just for yourself), you can disregard this.</li>
+<li><strong>User-level</strong>: These are configurations that rule all projects in our machine.</li>
+<li><strong>Project-level</strong>: Rules that affect <em><strong>only the session</strong></em> started from that specific folder/workspace.</li>
+</ol>
+<h2 id="deterministic-vs-non-deterministic-rules-and-constrains">Deterministic vs non-deterministic rules and constrains</h2>
+<p>There are reasons why we would add rules or constraints in different places.</p>
+<h3 id="claudemd">CLAUDE.MD</h3>
+<p>Claude&rsquo;s main entry point. This file will always be read first, loaded into the context and, most of the time, be the main set of instructions.</p>
+<blockquote>
+<p><strong><em>ANYWAYS&hellip;</em></strong> rules like &ldquo;don&rsquo;t use X tool&rdquo; or &ldquo;never execute Y&rdquo; are honestly a hit and miss. Many times I got to remind Claude to stop doing something I added in my user level <code>CLAUDE.MD</code> just to get the classic &ldquo;oh right, sorry, I missed that, it won&rsquo;t happen again&rdquo;. Hooks are the way to go for those cases.</p>
+</blockquote>
+<p>Keep more broad, less important information here, like &ldquo;response style&rdquo; or &ldquo;verbostity level&rdquo; because <code>CLAUDE.MD</code> is non-deterministic. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Also, keep this file as short as possible because this is information that is loaded in the &ldquo;context&rdquo;, that context is finite and we need it. Even though Anthropic doesn&rsquo;t provide a specific number, general consensus is less that 200 lines is good, less than 60 ideal. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h3 id="hooks">Hooks</h3>
+<p>On the other side, hooks are determinisitic <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. Just like git hooks, these will <em>always</em> be executed upon certain events.</p>
+<p>Based on below categories, the events are:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Events</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Session</td>
+					<td><code>SessionStart</code>, <code>Setup</code>, <code>SessionEnd</code></td>
+			</tr>
+			<tr>
+					<td>Turn</td>
+					<td><code>UserPromptSubmit</code>, <code>UserPromptExpansion</code>, <code>Stop</code>, <code>StopFailure</code></td>
+			</tr>
+			<tr>
+					<td>Agentic Loop</td>
+					<td><code>PreToolUse</code>, <code>PermissionRequest</code>, <code>PermissionDenied</code>, <code>PostToolUse</code>,</td>
+			</tr>
+			<tr>
+					<td>Agent/Team</td>
+					<td><code>SubagentStart</code>, <code>SubagentStop</code>, <code>TeammateIdle</code>, <code>TaskCreated</code>, <code>TaskCompleted</code></td>
+			</tr>
+			<tr>
+					<td>File/Environment</td>
+					<td><code>InstructionsLoaded</code>, <code>ConfigChange</code>, <code>CwdChanged</code>, <code>FileChanged</code>, <code>WorktreeCreate</code>, <code>WorktreeRemove</code>, <code>PreCompact</code>, <code>PostCompact</code></td>
+			</tr>
+			<tr>
+					<td>Notifications</td>
+					<td><code>Notification</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>And based on those events there&rsquo;s supports for multiple handler types (per documentation <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>):</p>
+<table>
+	<thead>
+			<tr>
+					<th>Handler Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Command hooks</td>
+					<td>Run shell commands (most common)</td>
+			</tr>
+			<tr>
+					<td>HTTP hooks</td>
+					<td>POST to an endpoint</td>
+			</tr>
+			<tr>
+					<td>Prompt hooks</td>
+					<td>Inject LLM prompts</td>
+			</tr>
+			<tr>
+					<td>Agent hooks</td>
+					<td>Spawn subagents</td>
+			</tr>
+			<tr>
+					<td>MCP tool hooks</td>
+					<td>Call MCP tools directly</td>
+			</tr>
+	</tbody>
+</table>
+<p>There&rsquo;s no need to memorize anything here, but understanding different levels, and the capabilities and limitations that exist gives us a great advantage at getting good results. That should be enough to know when to ask our agent to add a hook or a rule, and at what level depending our workflow.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>&ldquo;Non-Deterministic AI&rdquo; can yield different outputs from the same input due to its reliance on probabilities and variability.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>These are very generic numbers that don&rsquo;t have into account how many <code>CLAUDE.MD</code> files our repo has (because it can contain many) or how much data we&rsquo;re loading into the context.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>&ldquo;Deterministic AI&rdquo; produces the same output every time for a given input, ensuring predictability and repeatability.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>The documentation goes pretty deep into verious topics like Lifecycle and even it provide some examples of event fires. Documentation in: <a href="https://code.claude.com/docs/en/hooks">https://code.claude.com/docs/en/hooks</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Back to RSS</title>
       <link>http://javierdecarli.com/posts/going-back-to-rss/</link>

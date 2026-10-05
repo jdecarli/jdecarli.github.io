@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Claude Code setup 101 | javierdecarli.com</title>
+<meta name="keywords" content="ai, coding, claude code">
+<meta name="description" content="Minimun knowledge required for a good experience">
+<meta name="author" content="Javier De Carli">
+<link rel="canonical" href="http://javierdecarli.com/posts/claude-code-setup-101/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07559fc32d552d197873e8f5fc160025d6a5387f9a0edf52acc50d1d4ceaafd6.css" integrity="sha256-B1Wfwy1VLRl4c&#43;j1/BYAJdalOH&#43;aDt9SrMUNHUzqr9Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://javierdecarli.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://javierdecarli.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://javierdecarli.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://javierdecarli.com/apple-touch-icon.png">
+<link rel="mask-icon" href="http://javierdecarli.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://javierdecarli.com/posts/claude-code-setup-101/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://javierdecarli.com/posts/claude-code-setup-101/">
+  <meta property="og:site_name" content="javierdecarli.com">
+  <meta property="og:title" content="Claude Code setup 101">
+  <meta property="og:description" content="Minimun knowledge required for a good experience">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-10-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-10-04T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Coding">
+    <meta property="article:tag" content="Claude Code">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Code setup 101">
+  <meta name="twitter:description" content="Minimun knowledge required for a good experience">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://javierdecarli.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Claude Code setup 101",
+      "item": "http://javierdecarli.com/posts/claude-code-setup-101/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Claude Code setup 101",
+  "name": "Claude Code setup 101",
+  "description": "Minimun knowledge required for a good experience",
+  "keywords": [
+    "ai", "coding", "claude code"
+  ],
+  "articleBody": "It’s pretty important to have a tight control on how our Claude Code is configured. The more we understand how it’s set, the more confident we can be that our agents will do what we want them to do, and avoid unwanted consequences.\nAs we’re in the infancy of this tech, and things change very quickly, have in mind I’m writting this on October 2026, and things might change drastically in the future.\nUnderstanding configuration levels Claude has 3 levels worth mentioning\nEnterprise-level: This is the highest level and the one we have the least control. This is meant for your organization to push rules/restrictions to your harness. If you use Claude outside an organization (just for yourself), you can disregard this. User-level: These are configurations that rule all projects in our machine. Project-level: Rules that affect only the session started from that specific folder/workspace. Deterministic vs non-deterministic rules and constrains There are reasons why we would add rules or constraints in different places.\nCLAUDE.MD Claude’s main entry point. This file will always be read first, loaded into the context and, most of the time, be the main set of instructions.\nANYWAYS… rules like “don’t use X tool” or “never execute Y” are honestly a hit and miss. Many times I got to remind Claude to stop doing something I added in my user level CLAUDE.MD just to get the classic “oh right, sorry, I missed that, it won’t happen again”. Hooks are the way to go for those cases.\nKeep more broad, less important information here, like “response style” or “verbostity level” because CLAUDE.MD is non-deterministic. 1\nAlso, keep this file as short as possible because this is information that is loaded in the “context”, that context is finite and we need it. Even though Anthropic doesn’t provide a specific number, general consensus is less that 200 lines is good, less than 60 ideal. 2\nHooks On the other side, hooks are determinisitic 3. Just like git hooks, these will always be executed upon certain events.\nBased on below categories, the events are:\nCategory Events Session SessionStart, Setup, SessionEnd Turn UserPromptSubmit, UserPromptExpansion, Stop, StopFailure Agentic Loop PreToolUse, PermissionRequest, PermissionDenied, PostToolUse, Agent/Team SubagentStart, SubagentStop, TeammateIdle, TaskCreated, TaskCompleted File/Environment InstructionsLoaded, ConfigChange, CwdChanged, FileChanged, WorktreeCreate, WorktreeRemove, PreCompact, PostCompact Notifications Notification And based on those events there’s supports for multiple handler types (per documentation 4):\nHandler Type Description Command hooks Run shell commands (most common) HTTP hooks POST to an endpoint Prompt hooks Inject LLM prompts Agent hooks Spawn subagents MCP tool hooks Call MCP tools directly There’s no need to memorize anything here, but understanding different levels, and the capabilities and limitations that exist gives us a great advantage at getting good results. That should be enough to know when to ask our agent to add a hook or a rule, and at what level depending our workflow.\n“Non-Deterministic AI” can yield different outputs from the same input due to its reliance on probabilities and variability. ↩︎\nThese are very generic numbers that don’t have into account how many CLAUDE.MD files our repo has (because it can contain many) or how much data we’re loading into the context. ↩︎\n“Deterministic AI” produces the same output every time for a given input, ensuring predictability and repeatability. ↩︎\nThe documentation goes pretty deep into verious topics like Lifecycle and even it provide some examples of event fires. Documentation in: https://code.claude.com/docs/en/hooks ↩︎\n",
+  "wordCount" : "563",
+  "inLanguage": "en",
+  "datePublished": "2026-10-04T00:00:00Z",
+  "dateModified": "2026-10-04T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Javier De Carli"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://javierdecarli.com/posts/claude-code-setup-101/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "javierdecarli.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://javierdecarli.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://javierdecarli.com/" accesskey="h" title="javierdecarli.com (Alt + H)">javierdecarli.com</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button><span class="nav-sep">|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://javierdecarli.com/es/" title="Español"
+                                aria-label="Español">Español</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://javierdecarli.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Claude Code setup 101
+    </h1>
+    <div class="post-description">
+      Minimun knowledge required for a good experience
+    </div>
+    <div class="post-meta">
+
+<span title='2026-10-04 00:00:00 +0000 UTC'>October 4, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Javier De Carli</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>It&rsquo;s pretty important to have a tight control on how our Claude Code is configured. The more we understand how it&rsquo;s set, the more confident we can be that our agents will do what we want them to do, and avoid unwanted consequences.</p>
+<blockquote>
+<p>As we&rsquo;re in the infancy of this tech, and things change very quickly, have in mind I&rsquo;m writting this on <strong><em>October 2026</em></strong>, and things might change drastically in the future.</p>
+</blockquote>
+<h2 id="understanding-configuration-levels">Understanding configuration levels<a hidden class="anchor" aria-hidden="true" href="#understanding-configuration-levels">#</a></h2>
+<p>Claude has 3 levels worth mentioning</p>
+<ol>
+<li><strong>Enterprise-level</strong>: This is the highest level and the one we have the least control. This is meant for your organization to push rules/restrictions to your harness. If you use Claude outside an organization (just for yourself), you can disregard this.</li>
+<li><strong>User-level</strong>: These are configurations that rule all projects in our machine.</li>
+<li><strong>Project-level</strong>: Rules that affect <em><strong>only the session</strong></em> started from that specific folder/workspace.</li>
+</ol>
+<h2 id="deterministic-vs-non-deterministic-rules-and-constrains">Deterministic vs non-deterministic rules and constrains<a hidden class="anchor" aria-hidden="true" href="#deterministic-vs-non-deterministic-rules-and-constrains">#</a></h2>
+<p>There are reasons why we would add rules or constraints in different places.</p>
+<h3 id="claudemd">CLAUDE.MD<a hidden class="anchor" aria-hidden="true" href="#claudemd">#</a></h3>
+<p>Claude&rsquo;s main entry point. This file will always be read first, loaded into the context and, most of the time, be the main set of instructions.</p>
+<blockquote>
+<p><strong><em>ANYWAYS&hellip;</em></strong> rules like &ldquo;don&rsquo;t use X tool&rdquo; or &ldquo;never execute Y&rdquo; are honestly a hit and miss. Many times I got to remind Claude to stop doing something I added in my user level <code>CLAUDE.MD</code> just to get the classic &ldquo;oh right, sorry, I missed that, it won&rsquo;t happen again&rdquo;. Hooks are the way to go for those cases.</p>
+</blockquote>
+<p>Keep more broad, less important information here, like &ldquo;response style&rdquo; or &ldquo;verbostity level&rdquo; because <code>CLAUDE.MD</code> is non-deterministic. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Also, keep this file as short as possible because this is information that is loaded in the &ldquo;context&rdquo;, that context is finite and we need it. Even though Anthropic doesn&rsquo;t provide a specific number, general consensus is less that 200 lines is good, less than 60 ideal. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h3 id="hooks">Hooks<a hidden class="anchor" aria-hidden="true" href="#hooks">#</a></h3>
+<p>On the other side, hooks are determinisitic <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. Just like git hooks, these will <em>always</em> be executed upon certain events.</p>
+<p>Based on below categories, the events are:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Category</th>
+					<th>Events</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Session</td>
+					<td><code>SessionStart</code>, <code>Setup</code>, <code>SessionEnd</code></td>
+			</tr>
+			<tr>
+					<td>Turn</td>
+					<td><code>UserPromptSubmit</code>, <code>UserPromptExpansion</code>, <code>Stop</code>, <code>StopFailure</code></td>
+			</tr>
+			<tr>
+					<td>Agentic Loop</td>
+					<td><code>PreToolUse</code>, <code>PermissionRequest</code>, <code>PermissionDenied</code>, <code>PostToolUse</code>,</td>
+			</tr>
+			<tr>
+					<td>Agent/Team</td>
+					<td><code>SubagentStart</code>, <code>SubagentStop</code>, <code>TeammateIdle</code>, <code>TaskCreated</code>, <code>TaskCompleted</code></td>
+			</tr>
+			<tr>
+					<td>File/Environment</td>
+					<td><code>InstructionsLoaded</code>, <code>ConfigChange</code>, <code>CwdChanged</code>, <code>FileChanged</code>, <code>WorktreeCreate</code>, <code>WorktreeRemove</code>, <code>PreCompact</code>, <code>PostCompact</code></td>
+			</tr>
+			<tr>
+					<td>Notifications</td>
+					<td><code>Notification</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>And based on those events there&rsquo;s supports for multiple handler types (per documentation <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>):</p>
+<table>
+	<thead>
+			<tr>
+					<th>Handler Type</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Command hooks</td>
+					<td>Run shell commands (most common)</td>
+			</tr>
+			<tr>
+					<td>HTTP hooks</td>
+					<td>POST to an endpoint</td>
+			</tr>
+			<tr>
+					<td>Prompt hooks</td>
+					<td>Inject LLM prompts</td>
+			</tr>
+			<tr>
+					<td>Agent hooks</td>
+					<td>Spawn subagents</td>
+			</tr>
+			<tr>
+					<td>MCP tool hooks</td>
+					<td>Call MCP tools directly</td>
+			</tr>
+	</tbody>
+</table>
+<p>There&rsquo;s no need to memorize anything here, but understanding different levels, and the capabilities and limitations that exist gives us a great advantage at getting good results. That should be enough to know when to ask our agent to add a hook or a rule, and at what level depending our workflow.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>&ldquo;Non-Deterministic AI&rdquo; can yield different outputs from the same input due to its reliance on probabilities and variability.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>These are very generic numbers that don&rsquo;t have into account how many <code>CLAUDE.MD</code> files our repo has (because it can contain many) or how much data we&rsquo;re loading into the context.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>&ldquo;Deterministic AI&rdquo; produces the same output every time for a given input, ensuring predictability and repeatability.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>The documentation goes pretty deep into verious topics like Lifecycle and even it provide some examples of event fires. Documentation in: <a href="https://code.claude.com/docs/en/hooks">https://code.claude.com/docs/en/hooks</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://javierdecarli.com/tags/ai/">Ai</a></li>
+      <li><a href="http://javierdecarli.com/tags/coding/">Coding</a></li>
+      <li><a href="http://javierdecarli.com/tags/claude-code/">Claude Code</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://javierdecarli.com/posts/going-back-to-rss/">
+    <span class="title">Next »</span>
+    <span>Back to RSS</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://javierdecarli.com/">javierdecarli.com</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
