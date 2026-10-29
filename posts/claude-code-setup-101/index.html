@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Claude Code setup 101 | javierdecarli.com</title>
-<meta name="keywords" content="ai, coding, claude code">
+<meta name="keywords" content="ai, claude-code, tooling">
 <meta name="description" content="Minimun knowledge required for a good experience">
 <meta name="author" content="Javier De Carli">
 <link rel="canonical" href="http://javierdecarli.com/posts/claude-code-setup-101/">
@@ -74,8 +74,8 @@
     <meta property="article:published_time" content="2026-10-04T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-10-04T00:00:00+00:00">
     <meta property="article:tag" content="Ai">
-    <meta property="article:tag" content="Coding">
-    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Claude-Code">
+    <meta property="article:tag" content="Tooling">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Claude Code setup 101">
@@ -110,7 +110,7 @@
   "name": "Claude Code setup 101",
   "description": "Minimun knowledge required for a good experience",
   "keywords": [
-    "ai", "coding", "claude code"
+    "ai", "claude-code", "tooling"
   ],
   "articleBody": "It’s pretty important to have a tight control on how our Claude Code is configured. The more we understand how it’s set, the more confident we can be that our agents will do what we want them to do, and avoid unwanted consequences.\nAs we’re in the infancy of this tech, and things change very quickly, have in mind I’m writting this on October 2026, and things might change drastically in the future.\nUnderstanding configuration levels Claude has 3 levels worth mentioning\nEnterprise-level: This is the highest level and the one we have the least control. This is meant for your organization to push rules/restrictions to your harness. If you use Claude outside an organization (just for yourself), you can disregard this. User-level: These are configurations that rule all projects in our machine. Project-level: Rules that affect only the session started from that specific folder/workspace. Deterministic vs non-deterministic rules and constrains There are reasons why we would add rules or constraints in different places.\nCLAUDE.MD Claude’s main entry point. This file will always be read first, loaded into the context and, most of the time, be the main set of instructions.\nANYWAYS… rules like “don’t use X tool” or “never execute Y” are honestly a hit and miss. Many times I got to remind Claude to stop doing something I added in my user level CLAUDE.MD just to get the classic “oh right, sorry, I missed that, it won’t happen again”. Hooks are the way to go for those cases.\nKeep more broad, less important information here, like “response style” or “verbostity level” because CLAUDE.MD is non-deterministic. 1\nAlso, keep this file as short as possible because this is information that is loaded in the “context”, that context is finite and we need it. Even though Anthropic doesn’t provide a specific number, general consensus is less that 200 lines is good, less than 60 ideal. 2\nHooks On the other side, hooks are determinisitic 3. Just like git hooks, these will always be executed upon certain events.\nBased on below categories, the events are:\nCategory Events Session SessionStart, Setup, SessionEnd Turn UserPromptSubmit, UserPromptExpansion, Stop, StopFailure Agentic Loop PreToolUse, PermissionRequest, PermissionDenied, PostToolUse, Agent/Team SubagentStart, SubagentStop, TeammateIdle, TaskCreated, TaskCompleted File/Environment InstructionsLoaded, ConfigChange, CwdChanged, FileChanged, WorktreeCreate, WorktreeRemove, PreCompact, PostCompact Notifications Notification And based on those events there’s supports for multiple handler types (per documentation 4):\nHandler Type Description Command hooks Run shell commands (most common) HTTP hooks POST to an endpoint Prompt hooks Inject LLM prompts Agent hooks Spawn subagents MCP tool hooks Call MCP tools directly There’s no need to memorize anything here, but understanding different levels, and the capabilities and limitations that exist gives us a great advantage at getting good results. That should be enough to know when to ask our agent to add a hook or a rule, and at what level depending our workflow.\n“Non-Deterministic AI” can yield different outputs from the same input due to its reliance on probabilities and variability. ↩︎\nThese are very generic numbers that don’t have into account how many CLAUDE.MD files our repo has (because it can contain many) or how much data we’re loading into the context. ↩︎\n“Deterministic AI” produces the same output every time for a given input, ensuring predictability and repeatability. ↩︎\nThe documentation goes pretty deep into verious topics like Lifecycle and even it provide some examples of event fires. Documentation in: https://code.claude.com/docs/en/hooks ↩︎\n",
   "wordCount" : "563",
@@ -335,8 +335,8 @@
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="http://javierdecarli.com/tags/ai/">Ai</a></li>
-      <li><a href="http://javierdecarli.com/tags/coding/">Coding</a></li>
-      <li><a href="http://javierdecarli.com/tags/claude-code/">Claude Code</a></li>
+      <li><a href="http://javierdecarli.com/tags/claude-code/">Claude-Code</a></li>
+      <li><a href="http://javierdecarli.com/tags/tooling/">Tooling</a></li>
     </ul>
 <nav class="paginav">
   <a class="next" href="http://javierdecarli.com/posts/going-back-to-rss/">

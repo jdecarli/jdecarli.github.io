@@ -31,27 +31,11 @@
                 href="http://javierdecarli.com/es/categories/"
                 />
   </url><url>
-    <loc>http://javierdecarli.com/tags/claude-code/</loc>
-    <lastmod>2026-10-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://javierdecarli.com/posts/claude-code-setup-101/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://javierdecarli.com/tags/coding/</loc>
+    <loc>http://javierdecarli.com/tags/claude-code/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/categories/general/</loc>
-    <lastmod>2026-10-04T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://javierdecarli.com/categories/general/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://javierdecarli.com/es/categories/general/"
-                />
   </url><url>
     <loc>http://javierdecarli.com/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
@@ -79,26 +63,58 @@
                 href="http://javierdecarli.com/es/posts/"
                 />
   </url><url>
+    <loc>http://javierdecarli.com/categories/tech/</loc>
+    <lastmod>2026-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/tags/tooling/</loc>
+    <lastmod>2026-10-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://javierdecarli.com/posts/going-back-to-rss/</loc>
     <lastmod>2026-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://javierdecarli.com/tags/blog/</loc>
+    <loc>http://javierdecarli.com/categories/meta/</loc>
     <lastmod>2026-09-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://javierdecarli.com/tags/blog/"
+                href="http://javierdecarli.com/categories/meta/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://javierdecarli.com/es/tags/blog/"
+                href="http://javierdecarli.com/es/categories/meta/"
+                />
+  </url><url>
+    <loc>http://javierdecarli.com/tags/rss/</loc>
+    <lastmod>2026-09-28T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/tags/rss/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/tags/rss/"
                 />
   </url><url>
     <loc>http://javierdecarli.com/tags/opinion/</loc>
     <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/tags/opinion/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/tags/opinion/"
+                />
   </url><url>
     <loc>http://javierdecarli.com/posts/the-age-of-software-decision-making/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/categories/work/</loc>
     <lastmod>2026-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/tags/communication/</loc>
@@ -107,22 +123,13 @@
     <loc>http://javierdecarli.com/tags/learning/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://javierdecarli.com/tags/life/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/categories/opinion/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/productivity/</loc>
-    <lastmod>2026-08-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://javierdecarli.com/posts/transfering-knowledge/</loc>
     <lastmod>2026-08-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/posts/make-your-work-setup-enjoyable/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://javierdecarli.com/tags/nerd/</loc>
+    <loc>http://javierdecarli.com/tags/productivity/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/posts/first-post/</loc>

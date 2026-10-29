@@ -6,8 +6,46 @@
     <description>Recent content on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fallar es parte de aprender</title>
+      <link>http://javierdecarli.com/es/posts/fallar-es-parte-de-aprender/</link>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/es/posts/fallar-es-parte-de-aprender/</guid>
+      <description>Aprender raramente es una linea recta</description>
+      <content:encoded><![CDATA[<p>El otro dia mirando una entrevista que mi hermano me paso me puse a pensar bastante en cuan importante son los fallos para llegar a donde queremos llegar, ya sea profesionalmente, o en muchos otros aspectos de la vida.</p>
+<p>El <a href="https://es.wikipedia.org/wiki/Chema_Alonso">&ldquo;Chema&rdquo; Alonso</a> es un hacker Español muy conocido que tiene unas charlas muy divertidas y a su vez super técnicas. Muy conocido por su estilo muy particular y obvio el gorrito! 🤣</p>
+<p>Tuve la suerte de conocerlo en una tech talk en Buenos Aires en las oficinas de Microsoft Argentina por el año 2011 (podría ser 2012&hellip; fue entre el 2010 y el 2013 seguro). Fuimos a esta tech talk de cyberseguridad con uno de mis amigos, y en esa época colega de trabajo, <a href="https://www.linkedin.com/in/ibaumann/">Nachito</a> y quedamos totalmente sorprendidos por el conocimiento que tenia y lo divertida que hizo la sesión. Y para cerrar el dia con broche de oro terminamos yendo con un grupo de gente a tomar unas cervezas&hellip; y el Chema se vino con nosotros.</p>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/KxLNuGGVAKE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=2228" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Entrevista al Chema Alonso"></iframe>
+		</div>
+
+<em>Chema hablando sobre los fracasos que lo ayudaron a ser la persona que es hoy.</em></p>
+<p>Me gusta mucho la reflexión que hace donde dice que quedo a una décima de entrar en la ingeniería superior y por eso tuvo que ir a la ingeniería técnica. Ahora, este hecho también trajo el beneficio de ayudarlo a poder entrar mas rápidamente al mercado laboral y, durante esos 13 años, construir su carrera e incluso armar su famosa primer empresa &ldquo;Informatica 64&rdquo; la cual luego seria adquirida por Telefónica.</p>
+<p>Luego, 13 años después y ya con 33 años, iba a conseguir ese titulo en la ingeniería superior a lo que el graciosamente dice &ldquo;1 décima me costó 13 años&rdquo; (igualmente esta claro que reconoce que el camino fue mejor y de hecho probablemente necesario).</p>
+<h2 id="mi-experiencia">Mi experiencia&hellip;</h2>
+<p>Si bien no me comparo con el Chema (porque es una eminencia!), concuerdo mucho con la reflexión de aprender de nuestros errores, y de que a veces solo se llega a buen destino a través de haber cometido ciertos errores o malas decisiones.</p>
+<p>En mi caso crecer en una ciudad que no era una de las grandes ciudades del país trajo sus pros y contras. Muchas cosas cambiaron entre los 80s y 2000s y la ciudad fue modernizándose pero en sus comienzos la carrera de Informatica (o sistemas) no era muy común. No había lugares para estudiarla y termine optando por entrar en ingeniería electromecánica, la cual me forzó a pasar todo un verano estudiando lo que no había aprendido de matemáticas para ponerme al nivel del examen de ingreso (y era muchísimo lo que me faltaba), entrar y darme cuenta luego de 6 meses que no era lo que yo pensaba.</p>
+<p>De ahi, pase a estudiar leyes (Derecho) lo cual creo que fue un poco una reacción al cansancio y frustración que me hizo desviarme un par de años del objetivo original. De todas maneras hoy reconozco todo lo que esa etapa me enseño <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> y como que me cargo de energías para que, en el momento justo donde se abrieron instituciones educativas en la ciudad, pueda volver a eso que siempre tanto me gusto que era sistemas.</p>
+<p>El resto tal vez es para otro post&hellip;</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Siento que hoy en dia todo esta tan enfocado en metricas y logros que fallar es muchas veces visto como algo malo (o incluso a evitar).</p>
+<p>El problema es que esos fallos enseñan mucho. Si durante mi periodo estudiando leyes (o mi etapa en ingeniería electromecánica previa) no hubiese aceptado la realidad de que eso no era lo que me apasionaba <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> jamas le hubiese dado otra oportunidad a sistemas y no hubiese llegado a hoy. Para encontrar que la ingeniería que estudie años atrás y sistemas eran tan distintos tuve que abandonar/fallar/dar por perdido algo para aprender y afrontar nuevos desafíos con otra perspectiva.</p>
+<p>Fallar es parte de aprender. No solo eso, es probablemente la mejor forma de aprender.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>que no es poco, es una carrera muy linda que requiere mucho estudio y la forma de estudiar es muy distinta a cualquier ciencia exacta.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Digamos que no me apasionaba al punto de no poder irme a dormir hasta terminar de desarrollar algo, o pasarme toda uan semana con un diseño en la cabeza.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>De vuelta al RSS</title>
       <link>http://javierdecarli.com/es/posts/devuelta-al-rss/</link>
