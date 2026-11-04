@@ -6,8 +6,57 @@
     <description>Recent content on javierdecarli.com</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://javierdecarli.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A case for unit tests</title>
+      <link>http://javierdecarli.com/posts/a-case-for-unit-tests/</link>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/posts/a-case-for-unit-tests/</guid>
+      <description>Why I think AI makes them more important, not less</description>
+      <content:encoded><![CDATA[<p>There&rsquo;s a lot of chat going around on what is the role of unit tests in this AI age. Are they still useful? are they an artifact from the past where the code was more human-driven and we needed those guardrails to make sure we don&rsquo;t break pre-existing behavior? or are they really useful for more than testing the written code?</p>
+<p>So&hellip; this is my take and why I <strong><em>do</em></strong> think not only they are necessary but more important than ever, which is a bit connected to all the advantages I see outside of the popular/most commonly referred one.</p>
+<h2 id="act-as-first-safety-net">Act as first safety net</h2>
+<p>This is in my opinion the classic and most commonly referred as the &ldquo;main reason&rdquo; why we add unit tests. We want to have a first pass through all our unit tests to make sure we didn&rsquo;t &ldquo;break anything else&rdquo; while doing new development, acting as some sort of &ldquo;soft&rdquo; regression. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>So, the main question here should be&hellip; does this still happen? are agents so powerful they have total and complete visibility of the code they are changing and my answer is <strong><em>definitely no</em></strong>, at least not on real software development projects. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Of course, It clearly depends a lot on the size of the solution, but same happens with us humans, and it almost happens for the same reasons which is the context of the problem (in our case that context is how much can we predict ahead of us, in &ldquo;ai agents&rdquo; is more about how much context memory they can load)</p>
+<blockquote>
+<p><strong>Summary</strong>: Still useful but very dependent on the type and size of project. Clearly not necessary if we&rsquo;re doing a small proof of concept or a bunch of scripts.</p>
+</blockquote>
+<h2 id="they-lock-down-behavior">They lock down behavior</h2>
+<p>Apart from testing, if the <em>unit at test</em> fulfills the promise, we should also lock that behavior down.</p>
+<p>By &ldquo;locking the behavior down&rdquo; I refer to having a unit test that unless the expected behavior is accomplished it won&rsquo;t pass, blocking the build from happening. If we want to achieve this the test must cover what the method receives as an input and what the resulting value must be.</p>
+<p>Last but not least, it&rsquo;s important the test covers the important scenarios and edge cases or else not only we have a <em>partially covered unit</em> but we&rsquo;re not really <em>locking down</em> the behavior.</p>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/mutation-testing">Mutation Testing</a> sounds like an effective way to identify if the unit test actually locks down behavior. To be honest, I need to investigate a bit about tools and what their capabilities are.</p>
+<blockquote>
+<p><strong>Summary</strong>: Depending on the size and intent of the actual solution I see is worth paying attention to this. I also see it could be useful on scenarios with shared contracts between different apps.</p>
+</blockquote>
+<h2 id="they-document-behavior">They document behavior</h2>
+<p>Very connected with the concept of locking down behavior (previous point). Before AI it was important because, if the unit test was complete and well-done <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, you didn&rsquo;t have to go on a crazy rabbit-hole searching for documentation. You could use a well done unit test to understand what was the code trying to do, and use experience and good judgment to understand the whole context.</p>
+<p>With AI it can change the outcome of what an agent do. I&rsquo;ve seen agents change their understanding after a unit test confirmed or denied a particular behavior so tests are one of the few ways <a href="http://javierdecarli.com/posts/the-age-of-software-decision-making/">to hand an agent the context it doesn&rsquo;t have</a>. They certainly <strong><em>act as a feedback loop</em></strong>.</p>
+<blockquote>
+<p><strong>Summary</strong>: After seeing how some agents behave, I think <strong><em>today</em></strong> this could be one of the most important factors of having <em><strong>well written</strong></em> unit tests. A wrong unit test can confuse an agent into thinking the method&rsquo;s intent is different.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>A unit test records not &ldquo;what does the code do&rdquo; but &ldquo;what is it supposed to do&rdquo; and sometimes the reasons for that logic are business rules.</p>
+<p>Not only I feel unit tests are relevant nowadays, but I feel they are almost a necessity. Obviously, this isn&rsquo;t a one-size-fits all, there are different projects sizes and things, but the overall idea is that an agent that run tests can check its own work and fix its mistakes without interaction.</p>
+<p>Without tests, it says &ldquo;done&rdquo; and you&rsquo;re the test suite.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I say &ldquo;soft&rdquo; regression because there are no integrations with other systems (like APIs or DBs).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>And I doubt ever will, because it&rsquo;s just not possible to know all possible outcomes for every combination, and even if an agent could predict every outcome, it still wouldn&rsquo;t know which outcomes are right. Predicting that <code>calculateDiscount(100)</code> returns <code>90</code> doesn&rsquo;t tell you whether the business wanted <code>90</code> or <code>85</code>. That knowledge lives with the people who own the problem, which is Brooks&rsquo;s <em>essential complexity</em> which was <a href="http://javierdecarli.com/posts/the-age-of-software-decision-making/">discussed in other post</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>I know I know&hellip; use your imagination for a moment, it&rsquo;s an example. Let&rsquo;s imagine for a moment the unit tests are <em>complete</em> and <em>well-done</em> 🤣.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Claude Code setup 101</title>
       <link>http://javierdecarli.com/posts/claude-code-setup-101/</link>

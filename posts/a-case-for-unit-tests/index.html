@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A case for unit tests | javierdecarli.com</title>
+<meta name="keywords" content="ai, testing, opinion">
+<meta name="description" content="Why I think AI makes them more important, not less">
+<meta name="author" content="Javier De Carli">
+<link rel="canonical" href="http://javierdecarli.com/posts/a-case-for-unit-tests/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07559fc32d552d197873e8f5fc160025d6a5387f9a0edf52acc50d1d4ceaafd6.css" integrity="sha256-B1Wfwy1VLRl4c&#43;j1/BYAJdalOH&#43;aDt9SrMUNHUzqr9Y=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://javierdecarli.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://javierdecarli.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://javierdecarli.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://javierdecarli.com/apple-touch-icon.png">
+<link rel="mask-icon" href="http://javierdecarli.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://javierdecarli.com/posts/a-case-for-unit-tests/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://javierdecarli.com/posts/a-case-for-unit-tests/">
+  <meta property="og:site_name" content="javierdecarli.com">
+  <meta property="og:title" content="A case for unit tests">
+  <meta property="og:description" content="Why I think AI makes them more important, not less">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-11-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-11-03T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Testing">
+    <meta property="article:tag" content="Opinion">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A case for unit tests">
+  <meta name="twitter:description" content="Why I think AI makes them more important, not less">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://javierdecarli.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "A case for unit tests",
+      "item": "http://javierdecarli.com/posts/a-case-for-unit-tests/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A case for unit tests",
+  "name": "A case for unit tests",
+  "description": "Why I think AI makes them more important, not less",
+  "keywords": [
+    "ai", "testing", "opinion"
+  ],
+  "articleBody": "There’s a lot of chat going around on what is the role of unit tests in this AI age. Are they still useful? are they an artifact from the past where the code was more human-driven and we needed those guardrails to make sure we don’t break pre-existing behavior? or are they really useful for more than testing the written code?\nSo… this is my take and why I do think not only they are necessary but more important than ever, which is a bit connected to all the advantages I see outside of the popular/most commonly referred one.\nAct as first safety net This is in my opinion the classic and most commonly referred as the “main reason” why we add unit tests. We want to have a first pass through all our unit tests to make sure we didn’t “break anything else” while doing new development, acting as some sort of “soft” regression. 1\nSo, the main question here should be… does this still happen? are agents so powerful they have total and complete visibility of the code they are changing and my answer is definitely no, at least not on real software development projects. 2\nOf course, It clearly depends a lot on the size of the solution, but same happens with us humans, and it almost happens for the same reasons which is the context of the problem (in our case that context is how much can we predict ahead of us, in “ai agents” is more about how much context memory they can load)\nSummary: Still useful but very dependent on the type and size of project. Clearly not necessary if we’re doing a small proof of concept or a bunch of scripts.\nThey lock down behavior Apart from testing, if the unit at test fulfills the promise, we should also lock that behavior down.\nBy “locking the behavior down” I refer to having a unit test that unless the expected behavior is accomplished it won’t pass, blocking the build from happening. If we want to achieve this the test must cover what the method receives as an input and what the resulting value must be.\nLast but not least, it’s important the test covers the important scenarios and edge cases or else not only we have a partially covered unit but we’re not really locking down the behavior.\nMutation Testing sounds like an effective way to identify if the unit test actually locks down behavior. To be honest, I need to investigate a bit about tools and what their capabilities are.\nSummary: Depending on the size and intent of the actual solution I see is worth paying attention to this. I also see it could be useful on scenarios with shared contracts between different apps.\nThey document behavior Very connected with the concept of locking down behavior (previous point). Before AI it was important because, if the unit test was complete and well-done 3, you didn’t have to go on a crazy rabbit-hole searching for documentation. You could use a well done unit test to understand what was the code trying to do, and use experience and good judgment to understand the whole context.\nWith AI it can change the outcome of what an agent do. I’ve seen agents change their understanding after a unit test confirmed or denied a particular behavior so tests are one of the few ways to hand an agent the context it doesn’t have. They certainly act as a feedback loop.\nSummary: After seeing how some agents behave, I think today this could be one of the most important factors of having well written unit tests. A wrong unit test can confuse an agent into thinking the method’s intent is different.\nConclusion A unit test records not “what does the code do” but “what is it supposed to do” and sometimes the reasons for that logic are business rules.\nNot only I feel unit tests are relevant nowadays, but I feel they are almost a necessity. Obviously, this isn’t a one-size-fits all, there are different projects sizes and things, but the overall idea is that an agent that run tests can check its own work and fix its mistakes without interaction.\nWithout tests, it says “done” and you’re the test suite.\nI say “soft” regression because there are no integrations with other systems (like APIs or DBs). ↩︎\nAnd I doubt ever will, because it’s just not possible to know all possible outcomes for every combination, and even if an agent could predict every outcome, it still wouldn’t know which outcomes are right. Predicting that calculateDiscount(100) returns 90 doesn’t tell you whether the business wanted 90 or 85. That knowledge lives with the people who own the problem, which is Brooks’s essential complexity which was discussed in other post. ↩︎\nI know I know… use your imagination for a moment, it’s an example. Let’s imagine for a moment the unit tests are complete and well-done 🤣. ↩︎\n",
+  "wordCount" : "825",
+  "inLanguage": "en",
+  "datePublished": "2026-11-03T00:00:00Z",
+  "dateModified": "2026-11-03T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Javier De Carli"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://javierdecarli.com/posts/a-case-for-unit-tests/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "javierdecarli.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://javierdecarli.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://javierdecarli.com/" accesskey="h" title="javierdecarli.com (Alt + H)">javierdecarli.com</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button><span class="nav-sep">|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://javierdecarli.com/es/" title="Español"
+                                aria-label="Español">Español</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://javierdecarli.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://javierdecarli.com/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      A case for unit tests
+    </h1>
+    <div class="post-description">
+      Why I think AI makes them more important, not less
+    </div>
+    <div class="post-meta">
+
+<span title='2026-11-03 00:00:00 +0000 UTC'>November 3, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Javier De Carli</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>There&rsquo;s a lot of chat going around on what is the role of unit tests in this AI age. Are they still useful? are they an artifact from the past where the code was more human-driven and we needed those guardrails to make sure we don&rsquo;t break pre-existing behavior? or are they really useful for more than testing the written code?</p>
+<p>So&hellip; this is my take and why I <strong><em>do</em></strong> think not only they are necessary but more important than ever, which is a bit connected to all the advantages I see outside of the popular/most commonly referred one.</p>
+<h2 id="act-as-first-safety-net">Act as first safety net<a hidden class="anchor" aria-hidden="true" href="#act-as-first-safety-net">#</a></h2>
+<p>This is in my opinion the classic and most commonly referred as the &ldquo;main reason&rdquo; why we add unit tests. We want to have a first pass through all our unit tests to make sure we didn&rsquo;t &ldquo;break anything else&rdquo; while doing new development, acting as some sort of &ldquo;soft&rdquo; regression. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>So, the main question here should be&hellip; does this still happen? are agents so powerful they have total and complete visibility of the code they are changing and my answer is <strong><em>definitely no</em></strong>, at least not on real software development projects. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Of course, It clearly depends a lot on the size of the solution, but same happens with us humans, and it almost happens for the same reasons which is the context of the problem (in our case that context is how much can we predict ahead of us, in &ldquo;ai agents&rdquo; is more about how much context memory they can load)</p>
+<blockquote>
+<p><strong>Summary</strong>: Still useful but very dependent on the type and size of project. Clearly not necessary if we&rsquo;re doing a small proof of concept or a bunch of scripts.</p>
+</blockquote>
+<h2 id="they-lock-down-behavior">They lock down behavior<a hidden class="anchor" aria-hidden="true" href="#they-lock-down-behavior">#</a></h2>
+<p>Apart from testing, if the <em>unit at test</em> fulfills the promise, we should also lock that behavior down.</p>
+<p>By &ldquo;locking the behavior down&rdquo; I refer to having a unit test that unless the expected behavior is accomplished it won&rsquo;t pass, blocking the build from happening. If we want to achieve this the test must cover what the method receives as an input and what the resulting value must be.</p>
+<p>Last but not least, it&rsquo;s important the test covers the important scenarios and edge cases or else not only we have a <em>partially covered unit</em> but we&rsquo;re not really <em>locking down</em> the behavior.</p>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/mutation-testing">Mutation Testing</a> sounds like an effective way to identify if the unit test actually locks down behavior. To be honest, I need to investigate a bit about tools and what their capabilities are.</p>
+<blockquote>
+<p><strong>Summary</strong>: Depending on the size and intent of the actual solution I see is worth paying attention to this. I also see it could be useful on scenarios with shared contracts between different apps.</p>
+</blockquote>
+<h2 id="they-document-behavior">They document behavior<a hidden class="anchor" aria-hidden="true" href="#they-document-behavior">#</a></h2>
+<p>Very connected with the concept of locking down behavior (previous point). Before AI it was important because, if the unit test was complete and well-done <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, you didn&rsquo;t have to go on a crazy rabbit-hole searching for documentation. You could use a well done unit test to understand what was the code trying to do, and use experience and good judgment to understand the whole context.</p>
+<p>With AI it can change the outcome of what an agent do. I&rsquo;ve seen agents change their understanding after a unit test confirmed or denied a particular behavior so tests are one of the few ways <a href="http://javierdecarli.com/posts/the-age-of-software-decision-making/">to hand an agent the context it doesn&rsquo;t have</a>. They certainly <strong><em>act as a feedback loop</em></strong>.</p>
+<blockquote>
+<p><strong>Summary</strong>: After seeing how some agents behave, I think <strong><em>today</em></strong> this could be one of the most important factors of having <em><strong>well written</strong></em> unit tests. A wrong unit test can confuse an agent into thinking the method&rsquo;s intent is different.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>A unit test records not &ldquo;what does the code do&rdquo; but &ldquo;what is it supposed to do&rdquo; and sometimes the reasons for that logic are business rules.</p>
+<p>Not only I feel unit tests are relevant nowadays, but I feel they are almost a necessity. Obviously, this isn&rsquo;t a one-size-fits all, there are different projects sizes and things, but the overall idea is that an agent that run tests can check its own work and fix its mistakes without interaction.</p>
+<p>Without tests, it says &ldquo;done&rdquo; and you&rsquo;re the test suite.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I say &ldquo;soft&rdquo; regression because there are no integrations with other systems (like APIs or DBs).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>And I doubt ever will, because it&rsquo;s just not possible to know all possible outcomes for every combination, and even if an agent could predict every outcome, it still wouldn&rsquo;t know which outcomes are right. Predicting that <code>calculateDiscount(100)</code> returns <code>90</code> doesn&rsquo;t tell you whether the business wanted <code>90</code> or <code>85</code>. That knowledge lives with the people who own the problem, which is Brooks&rsquo;s <em>essential complexity</em> which was <a href="http://javierdecarli.com/posts/the-age-of-software-decision-making/">discussed in other post</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>I know I know&hellip; use your imagination for a moment, it&rsquo;s an example. Let&rsquo;s imagine for a moment the unit tests are <em>complete</em> and <em>well-done</em> 🤣.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://javierdecarli.com/tags/ai/">Ai</a></li>
+      <li><a href="http://javierdecarli.com/tags/testing/">Testing</a></li>
+      <li><a href="http://javierdecarli.com/tags/opinion/">Opinion</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://javierdecarli.com/posts/claude-code-setup-101/">
+    <span class="title">Next »</span>
+    <span>Claude Code setup 101</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://javierdecarli.com/">javierdecarli.com</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
