@@ -1,7 +1,7 @@
 Direct link: http://javierdecarli.com
 
 # My personal page / jdecarli.github.io
-## v2.1.2 - (11/2026)
+## v2.1.2 (11/2026)
 - Mermaid support
 
 ## v2.1.1 (10/2026)
