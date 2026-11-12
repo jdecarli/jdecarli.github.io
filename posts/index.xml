@@ -62,10 +62,13 @@
       <link>http://javierdecarli.com/posts/claude-code-setup-101/</link>
       <pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate>
       <guid>http://javierdecarli.com/posts/claude-code-setup-101/</guid>
-      <description>Minimun knowledge required for a good experience</description>
-      <content:encoded><![CDATA[<p>It&rsquo;s pretty important to have a tight control on how our Claude Code is configured. The more we understand how it&rsquo;s set, the more confident we can be that our agents will do what we want them to do, and avoid unwanted consequences.</p>
+      <description>Minimum knowledge required for better results</description>
+      <content:encoded><![CDATA[<blockquote>
+<p><strong>UPDATE 2026-11-11</strong> / Added diagrams, the Permissions section, fixed some typos and some information on when each when the tool-call hooks run.</p>
+</blockquote>
+<p>It&rsquo;s pretty important to have a tight control on how our Claude Code is configured. The more we understand how it&rsquo;s set, the more confident we can be that our agents will do what we want them to do, and avoid unwanted consequences.</p>
 <blockquote>
-<p>As we&rsquo;re in the infancy of this tech, and things change very quickly, have in mind I&rsquo;m writting this on <strong><em>October 2026</em></strong>, and things might change drastically in the future.</p>
+<p>As we&rsquo;re in the infancy of this tech, and things change very quickly, have in mind I&rsquo;m writing this on <strong><em>October 2026</em></strong>, and things might change drastically in the future.</p>
 </blockquote>
 <h2 id="understanding-configuration-levels">Understanding configuration levels</h2>
 <p>Claude has 3 levels worth mentioning</p>
@@ -74,17 +77,46 @@
 <li><strong>User-level</strong>: These are configurations that rule all projects in our machine.</li>
 <li><strong>Project-level</strong>: Rules that affect <em><strong>only the session</strong></em> started from that specific folder/workspace.</li>
 </ol>
+<p>To make things a bit more visual, an example would look like this:</p>
+<pre class="mermaid">
+flowchart TB
+    E[&#34;Enterprise · set by your org&lt;br/&gt;block reading .env files&#34;]
+    U[&#34;User-level · ~/.claude/&lt;br/&gt;model: opus&#34;]
+    A[&#34;Project A · my-blog/.claude/&lt;br/&gt;nothing set&#34;]
+    B[&#34;Project B · work-api/.claude/&lt;br/&gt;model: sonnet&#34;]
+    SA([&#34;Session in A&lt;br/&gt;opus · .env blocked&#34;])
+    SB([&#34;Session in B&lt;br/&gt;sonnet · .env blocked&#34;])
+
+    U --&gt;|applies to every project| A
+    U --&gt; B
+    A --&gt; SA
+    B --&gt;|overrides the user-level model| SB
+    E -.-&gt;|always wins, can&#39;t be overridden| SA
+    E -.-&gt; SB
+</pre>
+
+<p>The user-level sets the defaults for every project (here, <code>model: opus</code>). A project can override them just for its own sessions, like Project B switching to <code>sonnet</code>, while Project A keeps the user default. It works a lot like git&rsquo;s global and local config.</p>
+<p>The enterprise level sits on top of everything: its rules reach every session and can&rsquo;t be overridden from below.</p>
 <h2 id="deterministic-vs-non-deterministic-rules-and-constrains">Deterministic vs non-deterministic rules and constrains</h2>
 <p>There are reasons why we would add rules or constraints in different places.</p>
+<p>All of the options below can live at any of the levels above (<code>~/.claude/</code> for the user-level, the project folder for the project-level). One difference though is <code>CLAUDE.MD</code> files don&rsquo;t override each other like settings do. Claude loads all of them together, so our user-level and project-level instructions <em><strong>add up</strong></em>.</p>
 <h3 id="claudemd">CLAUDE.MD</h3>
 <p>Claude&rsquo;s main entry point. This file will always be read first, loaded into the context and, most of the time, be the main set of instructions.</p>
 <blockquote>
-<p><strong><em>ANYWAYS&hellip;</em></strong> rules like &ldquo;don&rsquo;t use X tool&rdquo; or &ldquo;never execute Y&rdquo; are honestly a hit and miss. Many times I got to remind Claude to stop doing something I added in my user level <code>CLAUDE.MD</code> just to get the classic &ldquo;oh right, sorry, I missed that, it won&rsquo;t happen again&rdquo;. Hooks are the way to go for those cases.</p>
+<p><strong><em>ANYWAYS&hellip;</em></strong> rules like &ldquo;don&rsquo;t use X tool&rdquo; or &ldquo;never execute Y&rdquo; are honestly a hit and miss. Many times I got to remind Claude to stop doing something I added in my user level <code>CLAUDE.MD</code> just to get the classic &ldquo;oh right, sorry, I missed that, it won&rsquo;t happen again&rdquo;. Permissions or hooks are the way to go for those cases.</p>
 </blockquote>
-<p>Keep more broad, less important information here, like &ldquo;response style&rdquo; or &ldquo;verbostity level&rdquo; because <code>CLAUDE.MD</code> is non-deterministic. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Keep more broad, less important information here, like &ldquo;response style&rdquo; or &ldquo;verbosity level&rdquo; because <code>CLAUDE.MD</code> is non-deterministic. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <p>Also, keep this file as short as possible because this is information that is loaded in the &ldquo;context&rdquo;, that context is finite and we need it. Even though Anthropic doesn&rsquo;t provide a specific number, general consensus is less that 200 lines is good, less than 60 ideal. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h3 id="permissions">Permissions</h3>
+<p>For simple cases like &ldquo;never execute Y&rdquo;, the easiest option is a deny rule in <code>settings.json</code>. This type of rules are deterministic <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> and Claude can&rsquo;t run what&rsquo;s denied.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;deny&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Bash(rm -rf *)&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>A deny rule wins <em>at any level</em>, so a project can&rsquo;t allow something we denied at the user-level. The catch is that it only matches the command text so a <code>Bash(rm -rf *)</code> won&rsquo;t stop <code>/bin/rm -rf</code> from running. For a harder boundary, or anything more complex, we will need hooks.</p>
 <h3 id="hooks">Hooks</h3>
-<p>On the other side, hooks are determinisitic <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. Just like git hooks, these will <em>always</em> be executed upon certain events.</p>
+<p>Hooks, same as permissions, are deterministic. Just like git hooks, these will <em>always</em> be executed upon certain events.</p>
 <p>Based on below categories, the events are:</p>
 <table>
 	<thead>
@@ -104,7 +136,7 @@
 			</tr>
 			<tr>
 					<td>Agentic Loop</td>
-					<td><code>PreToolUse</code>, <code>PermissionRequest</code>, <code>PermissionDenied</code>, <code>PostToolUse</code>,</td>
+					<td><code>PreToolUse</code>, <code>PermissionRequest</code>, <code>PermissionDenied</code>, <code>PostToolUse</code>, <code>PostToolUseFailure</code>, <code>PostToolBatch</code></td>
 			</tr>
 			<tr>
 					<td>Agent/Team</td>
@@ -120,7 +152,42 @@
 			</tr>
 	</tbody>
 </table>
-<p>And based on those events there&rsquo;s supports for multiple handler types (per documentation <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>):</p>
+<p>And at this point in time:</p>
+<table>
+	<thead>
+			<tr>
+					<th>When</th>
+					<th>Hook events</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Before the tool call, ahead of the permission rules</td>
+					<td><code>PreToolUse</code></td>
+			</tr>
+			<tr>
+					<td>When the call needs a permission decision (e.g. Claude is about to ask us)</td>
+					<td><code>PermissionRequest</code></td>
+			</tr>
+			<tr>
+					<td>When auto mode denies the call</td>
+					<td><code>PermissionDenied</code></td>
+			</tr>
+			<tr>
+					<td>After the call succeeds</td>
+					<td><code>PostToolUse</code></td>
+			</tr>
+			<tr>
+					<td>After the call fails</td>
+					<td><code>PostToolUseFailure</code></td>
+			</tr>
+			<tr>
+					<td>After a batch of parallel calls finishes, before Claude&rsquo;s next step</td>
+					<td><code>PostToolBatch</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>And also based on those events there&rsquo;s supports for multiple handler types (per documentation <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>):</p>
 <table>
 	<thead>
 			<tr>
@@ -139,7 +206,7 @@
 			</tr>
 			<tr>
 					<td>Prompt hooks</td>
-					<td>Inject LLM prompts</td>
+					<td>Ask a Claude model to decide (e.g. allow or block)</td>
 			</tr>
 			<tr>
 					<td>Agent hooks</td>
@@ -151,7 +218,47 @@
 			</tr>
 	</tbody>
 </table>
-<p>There&rsquo;s no need to memorize anything here, but understanding different levels, and the capabilities and limitations that exist gives us a great advantage at getting good results. That should be enough to know when to ask our agent to add a hook or a rule, and at what level depending our workflow.</p>
+<p>For example, this is how the &ldquo;never execute Y&rdquo; rule from the <code>CLAUDE.MD</code> section looks as a hook. It runs before every Bash command and blocks <code>rm -rf</code>, no matter what Claude &ldquo;remembers&rdquo;. In <code>.claude/settings.json</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;hooks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;PreToolUse&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;matcher&#34;</span><span class="p">:</span> <span class="s2">&#34;Bash&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;hooks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;command&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;${CLAUDE_PROJECT_DIR}/.claude/hooks/block-rm.sh&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>And the script, <code>.claude/hooks/block-rm.sh</code> would be something like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="nv">COMMAND</span><span class="o">=</span><span class="k">$(</span>jq -r <span class="s1">&#39;.tool_input.command&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$COMMAND</span><span class="s2">&#34;</span> <span class="p">|</span> grep -q <span class="s1">&#39;rm -rf&#39;</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  jq -n <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    hookSpecificOutput: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">      hookEventName: &#34;PreToolUse&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">      permissionDecision: &#34;deny&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">      permissionDecisionReason: &#34;Destructive command blocked by hook&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></div><p>To visualize this whole explanation better, this is a flow diagram of how hooks and permissions would behave during our bash <code>rm -rf</code> example</p>
+<pre class="mermaid">
+flowchart TB
+    C[&#34;Claude wants to run a Bash command&#34;] --&gt; H{&#34;PreToolUse hook&lt;br/&gt;block-rm.sh&#34;}
+    H --&gt;|&#34;contains rm -rf&lt;br/&gt;(also /bin/rm -rf)&#34;| XH[&#34;Blocked by the hook&#34;]
+    H --&gt;|&#34;no match, or the hook failed&#34;| P{&#34;Permission rules&lt;br/&gt;deny, then ask, then allow&#34;}
+    P --&gt;|&#34;matches Bash(rm -rf *)&#34;| XP[&#34;Blocked by the deny rule&#34;]
+    P --&gt;|allowed| R[&#34;Command runs&#34;]
+</pre>
+
+<p>The hook runs first, before the permission rules <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. It catches any command containing <code>rm -rf</code>, including the <code>/bin/rm -rf</code> that the deny rule misses. If the hook can&rsquo;t decide (no match, or it failed, for example because <code>jq</code> isn&rsquo;t installed), the command moves on to the permission rules, and the deny rule is still there as a safety net. Each one covers what the other can miss.</p>
+<p>There&rsquo;s no need to memorize anything here, but understanding different levels and the capabilities and limitations that exist, gives us higher chances at getting better results. That should be enough to know when to ask our agent to add a hook or a permission rule, and at what level depending our workflow.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -165,7 +272,10 @@
 <p>&ldquo;Deterministic AI&rdquo; produces the same output every time for a given input, ensuring predictability and repeatability.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4">
-<p>The documentation goes pretty deep into verious topics like Lifecycle and even it provide some examples of event fires. Documentation in: <a href="https://code.claude.com/docs/en/hooks">https://code.claude.com/docs/en/hooks</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>The documentation goes pretty deep into various topics like Lifecycle and even it provide some examples of event fires. Documentation in: <a href="https://code.claude.com/docs/en/hooks">https://code.claude.com/docs/en/hooks</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>This particular hook (&ldquo;PreToolUse&rdquo;) runs before the permissions.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
