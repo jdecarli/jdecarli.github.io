@@ -143,5 +143,17 @@
                 hreflang="es"
                 href="http://javierdecarli.com/es/archives/"
                 />
+  </url><url>
+    <loc>http://javierdecarli.com/es/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/series/"
+                />
   </url>
 </urlset>

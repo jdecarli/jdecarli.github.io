@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://javierdecarli.com/series/linux-journey/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/series/cheatsheets/</loc>
+    <lastmod>2026-10-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://javierdecarli.com/tags/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -15,14 +21,11 @@
                 href="http://javierdecarli.com/es/tags/"
                 />
   </url><url>
-    <loc>http://javierdecarli.com/posts/a-case-for-unit-tests/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://javierdecarli.com/tags/ai/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <loc>http://javierdecarli.com/posts/linux/bunch-of-pies/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/categories/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -35,7 +38,7 @@
                 />
   </url><url>
     <loc>http://javierdecarli.com/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -46,6 +49,56 @@
                 hreflang="es"
                 href="http://javierdecarli.com/es/"
                 />
+  </url><url>
+    <loc>http://javierdecarli.com/tags/linux/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/tags/pi-hole/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/posts/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/posts/"
+                />
+  </url><url>
+    <loc>http://javierdecarli.com/tags/privacy/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/tags/raspberry-pi/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/tags/self-hosting/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/series/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://javierdecarli.com/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://javierdecarli.com/es/series/"
+                />
+  </url><url>
+    <loc>http://javierdecarli.com/categories/tech/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/posts/a-case-for-unit-tests/</loc>
+    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/tags/ai/</loc>
+    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/tags/opinion/</loc>
     <lastmod>2026-11-03T00:00:00+00:00</lastmod>
@@ -60,22 +113,6 @@
                 href="http://javierdecarli.com/es/tags/opinion/"
                 />
   </url><url>
-    <loc>http://javierdecarli.com/posts/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://javierdecarli.com/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://javierdecarli.com/es/posts/"
-                />
-  </url><url>
-    <loc>http://javierdecarli.com/categories/tech/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://javierdecarli.com/tags/testing/</loc>
     <lastmod>2026-11-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -87,6 +124,9 @@
   </url><url>
     <loc>http://javierdecarli.com/tags/tooling/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://javierdecarli.com/cheatsheets/keyboard-setups/</loc>
+    <lastmod>2026-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://javierdecarli.com/posts/going-back-to-rss/</loc>
     <lastmod>2026-09-28T00:00:00+00:00</lastmod>

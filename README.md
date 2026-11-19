@@ -1,6 +1,9 @@
 Direct link: http://javierdecarli.com
 
 # My personal page / jdecarli.github.io
+## v2.1.3 (11/2026)
+- New series section
+
 ## v2.1.2 (11/2026)
 - Mermaid support
 
@@ -15,7 +18,7 @@ Direct link: http://javierdecarli.com
 - Content organized into Hugo's content/ and public/ style structure (generated output presented here).
 
 ## v1.1 (01/2019)
-- Added JQuery to accomodate more than one certification with animation
+- Added JQuery to accommodate more than one certification with animation
 
 ## v1.0 (05/2018)
 - Based on Dinesh Pandiyan ["Minimal landing page for developers"](https://github.com/flexdinesh/dev-landing-page) project

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Privacy on javierdecarli.com</title>
+    <link>http://javierdecarli.com/tags/privacy/</link>
+    <description>Recent content in Privacy on javierdecarli.com</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://javierdecarli.com/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A bunch of pies</title>
+      <link>http://javierdecarli.com/posts/linux/bunch-of-pies/</link>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>http://javierdecarli.com/posts/linux/bunch-of-pies/</guid>
+      <description>A weekend project that worked extremely well</description>
+      <content:encoded><![CDATA[<p>I&rsquo;m continuously amazed at how many perfectly usable computers are thrown to the trash, and I&rsquo;m not talking about broken hardware. I&rsquo;m talking about stuff that is working, perfectly well, and in some cases still supported!</p>
+<p>This story starts many years ago (maybe around 2018) my wife was able to salvage these 3 Raspberry Pi Model 3b from the dumpster (or well&hellip; <em>on their way</em> to the dumpster) because she knows I&rsquo;m a nerd with a tendency to adopt homeless hardware devices 🤣. Apparently they were used as thin-clients on an office and the new IT department decided to replace them with some mini Thinkpads, which I feel was a wise decision given the GUI performance is abysmal. Anyways, Raspberries (at least anything below Pi4) given they are terrible at holding any GUI <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, are not hardware meant to replace your desktop but more to act as a server, or a terminal-only box.</p>
+<p>The Raspberry Pi 3b is from around 2016 so these mini computers were thrown away with barely 2 years in. They have multiple of USB ports, HDMI, WiFi/Bluetooth, little power source and they even still had the memory cards!. Main specs are:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Component</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>CPU</td>
+					<td>Quad Core 1.2GHz Broadcom BCM2837 64bit CPU</td>
+			</tr>
+			<tr>
+					<td>Memory</td>
+					<td>1GB RAM</td>
+			</tr>
+			<tr>
+					<td>Network</td>
+					<td>BCM43438 wireless LAN and Bluetooth Low Energy (BLE) on board</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>100 Base Ethernet</td>
+			</tr>
+			<tr>
+					<td>Connectivity</td>
+					<td>4 USB 2 ports</td>
+			</tr>
+			<tr>
+					<td>Video</td>
+					<td>Full size HDMI®</td>
+			</tr>
+			<tr>
+					<td>Storage</td>
+					<td>Micro SD port for loading your operating system and storing data</td>
+			</tr>
+	</tbody>
+</table>
+<p>Full specs <a href="https://www.raspberrypi.com/products/raspberry-pi-3-model-b">here</a></p>
+<h2 id="so-what-can-we-do-with-one-of-these-devices">So&hellip; what can we do with one of these devices?</h2>
+<p>There are many projects that can be installed but the one that really piqued my interest was the <a href="https://pi-hole.net">Pi-hole project</a></p>
+<p>It already became almost impossible to browse with a normal browser with no ad-blocker, so I had this feeling other devices might also be sending all sorts of data, sometimes without asking or anybody agreement. How much network bandwidth was I losing to telemetry and ads? Impossible to know, right?</p>
+<p>This was the perfect project&hellip; plus I could dip my toes into Linux outside work.</p>
+<h2 id="enter-the-pi-hole-project">Enter&hellip; the Pi-hole project</h2>
+<p>The project is basically an <a href="https://github.com/pi-hole/pi-hole">open source</a> DNS sinkhole. What it does is to act as a DNS for all the computers in your local network, but it hold a list of domains and provide the respective IP address only if the domain is not blacklisted (acting as a <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem <em><strong>sinkhole</strong></em>)</p>
+<pre class="mermaid">
+flowchart TB
+    D[&#34;Device on the network&lt;br/&gt;laptop, phone, smart TV&#34;] --&gt;|&#34;where is ads.tracker.com?&lt;br/&gt;where is github.com?&#34;| P{&#34;Pi-hole&lt;br/&gt;is the domain on a blocklist?&#34;}
+    P --&gt;|&#34;yes · ads.tracker.com&#34;| B[&#34;Answers 0.0.0.0&lt;br/&gt;the request goes nowhere&#34;]
+    P --&gt;|&#34;no · github.com&#34;| U[&#34;Asks the upstream DNS&lt;br/&gt;e.g. 1.1.1.1&#34;]
+    U --&gt;|real ip address| P2[&#34;Pi-hole returns the real ip&lt;br/&gt;and caches it for next time&#34;]
+    P2 --&gt; C[&#34;Device connects to github.com&#34;]
+</pre>
+
+<p>Blocked domains get <code>0.0.0.0</code>, an address that leads nowhere, so the ad or tracker never loads. Everything else works as a normal DNS.</p>
+<p>These list of domains are mostly on GitHub and are maintained by the community. Some of them are more permissive, and others more aggressive. Just be careful when going away from the default &ldquo;general purpose&rdquo; list because we can end up blocking some domain used for something specific (some companies will deny you certain service if their device or service cannot &ldquo;phone-home&rdquo;)</p>
+<p>Apart from that it can also act as a DHCP server which was perfect because my router decided to start acting funny after 30 or 40 ip addresses and, as an added advantage of using it as a DHCP server, is that now the Pi-hole knows each which device has which ip assigned and can filter and identify which device is calling which domain, how many calls are blocked, and other useful metrics that help us see very interesting things, like certain devices that shouldn&rsquo;t be calling anybody mysteriously sending data to ad or telemetry servers. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>There&rsquo;s no point in putting a tutorial or going into more details because <a href="https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/">this is very well documented</a>.</p>
+<h2 id="and">And&hellip;</h2>
+<p>And that Raspberry Pi 3b with the Pi-hole server has been running non-stop for 7 years&hellip; now I had to think what would be of the other 2.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Even the super basic raspberry OS distro, which used to be called Raspbian until the name was changed around 2020.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Pi-hole not identifying where each request comes from is a consequence of my router setting the pi-hole address as its DNS, instead of handing the pi-hole address to every device.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
