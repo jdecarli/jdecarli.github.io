@@ -29,23 +29,7 @@
 <li><strong>Project-level</strong>: Rules that affect <em><strong>only the session</strong></em> started from that specific folder/workspace.</li>
 </ol>
 <p>To make things a bit more visual, an example would look like this:</p>
-<pre class="mermaid">
-flowchart TB
-    E[&#34;Enterprise · set by your org&lt;br/&gt;block reading .env files&#34;]
-    U[&#34;User-level · ~/.claude/&lt;br/&gt;model: opus&#34;]
-    A[&#34;Project A · my-blog/.claude/&lt;br/&gt;nothing set&#34;]
-    B[&#34;Project B · work-api/.claude/&lt;br/&gt;model: sonnet&#34;]
-    SA([&#34;Session in A&lt;br/&gt;opus · .env blocked&#34;])
-    SB([&#34;Session in B&lt;br/&gt;sonnet · .env blocked&#34;])
-
-    U --&gt;|applies to every project| A
-    U --&gt; B
-    A --&gt; SA
-    B --&gt;|overrides the user-level model| SB
-    E -.-&gt;|always wins, can&#39;t be overridden| SA
-    E -.-&gt; SB
-</pre>
-
+<p><img src="https://mermaid.ink/svg/Zmxvd2NoYXJ0IFRCCiAgICBFWyJFbnRlcnByaXNlIMK3IHNldCBieSB5b3VyIG9yZzxici8-YmxvY2sgcmVhZGluZyAuZW52IGZpbGVzIl0KICAgIFVbIlVzZXItbGV2ZWwgwrcgfi8uY2xhdWRlLzxici8-bW9kZWw6IG9wdXMiXQogICAgQVsiUHJvamVjdCBBIMK3IG15LWJsb2cvLmNsYXVkZS88YnIvPm5vdGhpbmcgc2V0Il0KICAgIEJbIlByb2plY3QgQiDCtyB3b3JrLWFwaS8uY2xhdWRlLzxici8-bW9kZWw6IHNvbm5ldCJdCiAgICBTQShbIlNlc3Npb24gaW4gQTxici8-b3B1cyDCtyAuZW52IGJsb2NrZWQiXSkKICAgIFNCKFsiU2Vzc2lvbiBpbiBCPGJyLz5zb25uZXQgwrcgLmVudiBibG9ja2VkIl0pCgogICAgVSAtLT58YXBwbGllcyB0byBldmVyeSBwcm9qZWN0fCBBCiAgICBVIC0tPiBCCiAgICBBIC0tPiBTQQogICAgQiAtLT58b3ZlcnJpZGVzIHRoZSB1c2VyLWxldmVsIG1vZGVsfCBTQgogICAgRSAtLi0-fGFsd2F5cyB3aW5zLCBjYW4ndCBiZSBvdmVycmlkZGVufCBTQQogICAgRSAtLi0-IFNC" alt="Diagram"></p>
 <p>The user-level sets the defaults for every project (here, <code>model: opus</code>). A project can override them just for its own sessions, like Project B switching to <code>sonnet</code>, while Project A keeps the user default. It works a lot like git&rsquo;s global and local config.</p>
 <p>The enterprise level sits on top of everything: its rules reach every session and can&rsquo;t be overridden from below.</p>
 <h2 id="deterministic-vs-non-deterministic-rules-and-constrains">Deterministic vs non-deterministic rules and constrains</h2>
@@ -199,15 +183,7 @@ flowchart TB
 </span></span></span><span class="line"><span class="cl"><span class="s1">  }&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
 </span></span></code></pre></div><p>To visualize this whole explanation better, this is a flow diagram of how hooks and permissions would behave during our bash <code>rm -rf</code> example</p>
-<pre class="mermaid">
-flowchart TB
-    C[&#34;Claude wants to run a Bash command&#34;] --&gt; H{&#34;PreToolUse hook&lt;br/&gt;block-rm.sh&#34;}
-    H --&gt;|&#34;contains rm -rf&lt;br/&gt;(also /bin/rm -rf)&#34;| XH[&#34;Blocked by the hook&#34;]
-    H --&gt;|&#34;no match, or the hook failed&#34;| P{&#34;Permission rules&lt;br/&gt;deny, then ask, then allow&#34;}
-    P --&gt;|&#34;matches Bash(rm -rf *)&#34;| XP[&#34;Blocked by the deny rule&#34;]
-    P --&gt;|allowed| R[&#34;Command runs&#34;]
-</pre>
-
+<p><img src="https://mermaid.ink/svg/Zmxvd2NoYXJ0IFRCCiAgICBDWyJDbGF1ZGUgd2FudHMgdG8gcnVuIGEgQmFzaCBjb21tYW5kIl0gLS0-IEh7IlByZVRvb2xVc2UgaG9vazxici8-YmxvY2stcm0uc2gifQogICAgSCAtLT58ImNvbnRhaW5zIHJtIC1yZjxici8-KGFsc28gL2Jpbi9ybSAtcmYpInwgWEhbIkJsb2NrZWQgYnkgdGhlIGhvb2siXQogICAgSCAtLT58Im5vIG1hdGNoLCBvciB0aGUgaG9vayBmYWlsZWQifCBQeyJQZXJtaXNzaW9uIHJ1bGVzPGJyLz5kZW55LCB0aGVuIGFzaywgdGhlbiBhbGxvdyJ9CiAgICBQIC0tPnwibWF0Y2hlcyBCYXNoKHJtIC1yZiAqKSJ8IFhQWyJCbG9ja2VkIGJ5IHRoZSBkZW55IHJ1bGUiXQogICAgUCAtLT58YWxsb3dlZHwgUlsiQ29tbWFuZCBydW5zIl0=" alt="Diagram"></p>
 <p>The hook runs first, before the permission rules <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. It catches any command containing <code>rm -rf</code>, including the <code>/bin/rm -rf</code> that the deny rule misses. If the hook can&rsquo;t decide (no match, or it failed, for example because <code>jq</code> isn&rsquo;t installed), the command moves on to the permission rules, and the deny rule is still there as a safety net. Each one covers what the other can miss.</p>
 <p>There&rsquo;s no need to memorize anything here, but understanding different levels and the capabilities and limitations that exist, gives us higher chances at getting better results. That should be enough to know when to ask our agent to add a hook or a permission rule, and at what level depending our workflow.</p>
 <div class="footnotes" role="doc-endnotes">

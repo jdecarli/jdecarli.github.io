@@ -62,15 +62,7 @@
 <p>This was the perfect project&hellip; plus I could dip my toes into Linux outside work.</p>
 <h2 id="enter-the-pi-hole-project">Enter&hellip; the Pi-hole project</h2>
 <p>The project is basically an <a href="https://github.com/pi-hole/pi-hole">open source</a> DNS sinkhole. What it does is to act as a DNS for all the computers in your local network, but it hold a list of domains and provide the respective IP address only if the domain is not blacklisted (acting as a <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem <em><strong>sinkhole</strong></em>)</p>
-<pre class="mermaid">
-flowchart TB
-    D[&#34;Device on the network&lt;br/&gt;laptop, phone, smart TV&#34;] --&gt;|&#34;where is ads.tracker.com?&lt;br/&gt;where is github.com?&#34;| P{&#34;Pi-hole&lt;br/&gt;is the domain on a blocklist?&#34;}
-    P --&gt;|&#34;yes · ads.tracker.com&#34;| B[&#34;Answers 0.0.0.0&lt;br/&gt;the request goes nowhere&#34;]
-    P --&gt;|&#34;no · github.com&#34;| U[&#34;Asks the upstream DNS&lt;br/&gt;e.g. 1.1.1.1&#34;]
-    U --&gt;|real ip address| P2[&#34;Pi-hole returns the real ip&lt;br/&gt;and caches it for next time&#34;]
-    P2 --&gt; C[&#34;Device connects to github.com&#34;]
-</pre>
-
+<p><img src="https://mermaid.ink/svg/Zmxvd2NoYXJ0IFRCDQogICAgRFsiRGV2aWNlIG9uIHRoZSBuZXR3b3JrPGJyLz5sYXB0b3AsIHBob25lLCBzbWFydCBUViJdIC0tPnwid2hlcmUgaXMgYWRzLnRyYWNrZXIuY29tPzxici8-d2hlcmUgaXMgZ2l0aHViLmNvbT8ifCBQeyJQaS1ob2xlPGJyLz5pcyB0aGUgZG9tYWluIG9uIGEgYmxvY2tsaXN0PyJ9DQogICAgUCAtLT58InllcyDCtyBhZHMudHJhY2tlci5jb20ifCBCWyJBbnN3ZXJzIDAuMC4wLjA8YnIvPnRoZSByZXF1ZXN0IGdvZXMgbm93aGVyZSJdDQogICAgUCAtLT58Im5vIMK3IGdpdGh1Yi5jb20ifCBVWyJBc2tzIHRoZSB1cHN0cmVhbSBETlM8YnIvPmUuZy4gMS4xLjEuMSJdDQogICAgVSAtLT58cmVhbCBpcCBhZGRyZXNzfCBQMlsiUGktaG9sZSByZXR1cm5zIHRoZSByZWFsIGlwPGJyLz5hbmQgY2FjaGVzIGl0IGZvciBuZXh0IHRpbWUiXQ0KICAgIFAyIC0tPiBDWyJEZXZpY2UgY29ubmVjdHMgdG8gZ2l0aHViLmNvbSJd" alt="Diagram"></p>
 <p>Blocked domains get <code>0.0.0.0</code>, an address that leads nowhere, so the ad or tracker never loads. Everything else works as a normal DNS.</p>
 <p>These list of domains are mostly on GitHub and are maintained by the community. Some of them are more permissive, and others more aggressive. Just be careful when going away from the default &ldquo;general purpose&rdquo; list because we can end up blocking some domain used for something specific (some companies will deny you certain service if their device or service cannot &ldquo;phone-home&rdquo;)</p>
 <p>Apart from that it can also act as a DHCP server which was perfect because my router decided to start acting funny after 30 or 40 ip addresses and, as an added advantage of using it as a DHCP server, is that now the Pi-hole knows each which device has which ip assigned and can filter and identify which device is calling which domain, how many calls are blocked, and other useful metrics that help us see very interesting things, like certain devices that shouldn&rsquo;t be calling anybody mysteriously sending data to ad or telemetry servers. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
